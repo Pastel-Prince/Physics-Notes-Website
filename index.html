@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8" />
+      <title>Physics notes</title>
+      <style>.markdown-preview:not([data-use-github-style]) { padding: 2em; font-size: 1.2em; color: rgb(238, 255, 255); overflow: auto; background-color: rgb(38, 50, 56); }
+.markdown-preview:not([data-use-github-style]) > :first-child { margin-top: 0px; }
+.markdown-preview:not([data-use-github-style]) h1, .markdown-preview:not([data-use-github-style]) h2, .markdown-preview:not([data-use-github-style]) h3, .markdown-preview:not([data-use-github-style]) h4, .markdown-preview:not([data-use-github-style]) h5, .markdown-preview:not([data-use-github-style]) h6 { line-height: 1.2; margin-top: 1.5em; margin-bottom: 0.5em; color: rgb(255, 255, 255); }
+.markdown-preview:not([data-use-github-style]) h1 { font-size: 2.4em; font-weight: 300; }
+.markdown-preview:not([data-use-github-style]) h2 { font-size: 1.8em; font-weight: 400; }
+.markdown-preview:not([data-use-github-style]) h3 { font-size: 1.5em; font-weight: 500; }
+.markdown-preview:not([data-use-github-style]) h4 { font-size: 1.2em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) h5 { font-size: 1.1em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) h6 { font-size: 1em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) strong { color: rgb(255, 255, 255); }
+.markdown-preview:not([data-use-github-style]) del { color: rgb(156, 255, 255); }
+.markdown-preview:not([data-use-github-style]) a, .markdown-preview:not([data-use-github-style]) a code { color: rgb(0, 150, 136); }
+.markdown-preview:not([data-use-github-style]) img { max-width: 100%; }
+.markdown-preview:not([data-use-github-style]) > p { margin-top: 0px; margin-bottom: 1.5em; }
+.markdown-preview:not([data-use-github-style]) > ul, .markdown-preview:not([data-use-github-style]) > ol { margin-bottom: 1.5em; }
+.markdown-preview:not([data-use-github-style]) blockquote { margin: 1.5em 0px; font-size: inherit; color: rgb(156, 255, 255); border-color: rgb(71, 93, 105); border-width: 4px; }
+.markdown-preview:not([data-use-github-style]) hr { margin: 3em 0px; border-top: 2px dashed rgb(71, 93, 105); background: none; }
+.markdown-preview:not([data-use-github-style]) table { margin: 1.5em 0px; }
+.markdown-preview:not([data-use-github-style]) th { color: rgb(255, 255, 255); }
+.markdown-preview:not([data-use-github-style]) th, .markdown-preview:not([data-use-github-style]) td { padding: 0.66em 1em; border: 1px solid rgb(71, 93, 105); }
+.markdown-preview:not([data-use-github-style]) code { color: rgb(255, 255, 255); background-color: rgb(54, 72, 80); }
+.markdown-preview:not([data-use-github-style]) pre.editor-colors { margin: 1.5em 0px; padding: 1em; font-size: 0.92em; border-radius: 3px; background-color: rgb(46, 61, 68); }
+.markdown-preview:not([data-use-github-style]) kbd { color: rgb(255, 255, 255); border-width: 1px 1px 2px; border-style: solid; border-color: rgb(71, 93, 105) rgb(71, 93, 105) rgb(59, 77, 86); background-color: rgb(54, 72, 80); }
+.markdown-preview[data-use-github-style] { font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif; line-height: 1.6; word-wrap: break-word; padding: 30px; font-size: 16px; color: rgb(51, 51, 51); overflow: scroll; background-color: rgb(255, 255, 255); }
+.markdown-preview[data-use-github-style] > :first-child { margin-top: 0px !important; }
+.markdown-preview[data-use-github-style] > :last-child { margin-bottom: 0px !important; }
+.markdown-preview[data-use-github-style] a:not([href]) { color: inherit; text-decoration: none; }
+.markdown-preview[data-use-github-style] .absent { color: rgb(204, 0, 0); }
+.markdown-preview[data-use-github-style] .anchor { position: absolute; top: 0px; left: 0px; display: block; padding-right: 6px; padding-left: 30px; margin-left: -30px; }
+.markdown-preview[data-use-github-style] .anchor:focus { outline: none; }
+.markdown-preview[data-use-github-style] h1, .markdown-preview[data-use-github-style] h2, .markdown-preview[data-use-github-style] h3, .markdown-preview[data-use-github-style] h4, .markdown-preview[data-use-github-style] h5, .markdown-preview[data-use-github-style] h6 { position: relative; margin-top: 1em; margin-bottom: 16px; font-weight: bold; line-height: 1.4; }
+.markdown-preview[data-use-github-style] h1 .octicon-link, .markdown-preview[data-use-github-style] h2 .octicon-link, .markdown-preview[data-use-github-style] h3 .octicon-link, .markdown-preview[data-use-github-style] h4 .octicon-link, .markdown-preview[data-use-github-style] h5 .octicon-link, .markdown-preview[data-use-github-style] h6 .octicon-link { display: none; color: rgb(0, 0, 0); vertical-align: middle; }
+.markdown-preview[data-use-github-style] h1:hover .anchor, .markdown-preview[data-use-github-style] h2:hover .anchor, .markdown-preview[data-use-github-style] h3:hover .anchor, .markdown-preview[data-use-github-style] h4:hover .anchor, .markdown-preview[data-use-github-style] h5:hover .anchor, .markdown-preview[data-use-github-style] h6:hover .anchor { padding-left: 8px; margin-left: -30px; text-decoration: none; }
+.markdown-preview[data-use-github-style] h1:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h2:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h3:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h4:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h5:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h6:hover .anchor .octicon-link { display: inline-block; }
+.markdown-preview[data-use-github-style] h1 tt, .markdown-preview[data-use-github-style] h2 tt, .markdown-preview[data-use-github-style] h3 tt, .markdown-preview[data-use-github-style] h4 tt, .markdown-preview[data-use-github-style] h5 tt, .markdown-preview[data-use-github-style] h6 tt, .markdown-preview[data-use-github-style] h1 code, .markdown-preview[data-use-github-style] h2 code, .markdown-preview[data-use-github-style] h3 code, .markdown-preview[data-use-github-style] h4 code, .markdown-preview[data-use-github-style] h5 code, .markdown-preview[data-use-github-style] h6 code { font-size: inherit; }
+.markdown-preview[data-use-github-style] h1 { padding-bottom: 0.3em; font-size: 2.25em; line-height: 1.2; border-bottom: 1px solid rgb(238, 238, 238); }
+.markdown-preview[data-use-github-style] h1 .anchor { line-height: 1; }
+.markdown-preview[data-use-github-style] h2 { padding-bottom: 0.3em; font-size: 1.75em; line-height: 1.225; border-bottom: 1px solid rgb(238, 238, 238); }
+.markdown-preview[data-use-github-style] h2 .anchor { line-height: 1; }
+.markdown-preview[data-use-github-style] h3 { font-size: 1.5em; line-height: 1.43; }
+.markdown-preview[data-use-github-style] h3 .anchor { line-height: 1.2; }
+.markdown-preview[data-use-github-style] h4 { font-size: 1.25em; }
+.markdown-preview[data-use-github-style] h4 .anchor { line-height: 1.2; }
+.markdown-preview[data-use-github-style] h5 { font-size: 1em; }
+.markdown-preview[data-use-github-style] h5 .anchor { line-height: 1.1; }
+.markdown-preview[data-use-github-style] h6 { font-size: 1em; color: rgb(119, 119, 119); }
+.markdown-preview[data-use-github-style] h6 .anchor { line-height: 1.1; }
+.markdown-preview[data-use-github-style] p, .markdown-preview[data-use-github-style] blockquote, .markdown-preview[data-use-github-style] ul, .markdown-preview[data-use-github-style] ol, .markdown-preview[data-use-github-style] dl, .markdown-preview[data-use-github-style] table, .markdown-preview[data-use-github-style] pre { margin-top: 0px; margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] hr { height: 4px; padding: 0px; margin: 16px 0px; border: 0px none; background-color: rgb(231, 231, 231); }
+.markdown-preview[data-use-github-style] ul, .markdown-preview[data-use-github-style] ol { padding-left: 2em; }
+.markdown-preview[data-use-github-style] ul.no-list, .markdown-preview[data-use-github-style] ol.no-list { padding: 0px; list-style-type: none; }
+.markdown-preview[data-use-github-style] ul ul, .markdown-preview[data-use-github-style] ul ol, .markdown-preview[data-use-github-style] ol ol, .markdown-preview[data-use-github-style] ol ul { margin-top: 0px; margin-bottom: 0px; }
+.markdown-preview[data-use-github-style] li > p { margin-top: 16px; }
+.markdown-preview[data-use-github-style] dl { padding: 0px; }
+.markdown-preview[data-use-github-style] dl dt { padding: 0px; margin-top: 16px; font-size: 1em; font-style: italic; font-weight: bold; }
+.markdown-preview[data-use-github-style] dl dd { padding: 0px 16px; margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] blockquote { padding: 0px 15px; color: rgb(119, 119, 119); border-left: 4px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] blockquote > :first-child { margin-top: 0px; }
+.markdown-preview[data-use-github-style] blockquote > :last-child { margin-bottom: 0px; }
+.markdown-preview[data-use-github-style] table { display: block; width: 100%; overflow: auto; word-break: keep-all; }
+.markdown-preview[data-use-github-style] table th { font-weight: bold; }
+.markdown-preview[data-use-github-style] table th, .markdown-preview[data-use-github-style] table td { padding: 6px 13px; border: 1px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] table tr { border-top: 1px solid rgb(204, 204, 204); background-color: rgb(255, 255, 255); }
+.markdown-preview[data-use-github-style] table tr:nth-child(2n) { background-color: rgb(248, 248, 248); }
+.markdown-preview[data-use-github-style] img { max-width: 100%; box-sizing: border-box; }
+.markdown-preview[data-use-github-style] .emoji { max-width: none; }
+.markdown-preview[data-use-github-style] span.frame { display: block; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.frame > span { display: block; float: left; width: auto; padding: 7px; margin: 13px 0px 0px; overflow: hidden; border: 1px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] span.frame span img { display: block; float: left; }
+.markdown-preview[data-use-github-style] span.frame span span { display: block; padding: 5px 0px 0px; clear: both; color: rgb(51, 51, 51); }
+.markdown-preview[data-use-github-style] span.align-center { display: block; overflow: hidden; clear: both; }
+.markdown-preview[data-use-github-style] span.align-center > span { display: block; margin: 13px auto 0px; overflow: hidden; text-align: center; }
+.markdown-preview[data-use-github-style] span.align-center span img { margin: 0px auto; text-align: center; }
+.markdown-preview[data-use-github-style] span.align-right { display: block; overflow: hidden; clear: both; }
+.markdown-preview[data-use-github-style] span.align-right > span { display: block; margin: 13px 0px 0px; overflow: hidden; text-align: right; }
+.markdown-preview[data-use-github-style] span.align-right span img { margin: 0px; text-align: right; }
+.markdown-preview[data-use-github-style] span.float-left { display: block; float: left; margin-right: 13px; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.float-left span { margin: 13px 0px 0px; }
+.markdown-preview[data-use-github-style] span.float-right { display: block; float: right; margin-left: 13px; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.float-right > span { display: block; margin: 13px auto 0px; overflow: hidden; text-align: right; }
+.markdown-preview[data-use-github-style] code, .markdown-preview[data-use-github-style] tt { padding: 0.2em 0px; margin: 0px; font-size: 85%; border-radius: 3px; background-color: rgba(0, 0, 0, 0.0392157); }
+.markdown-preview[data-use-github-style] code::before, .markdown-preview[data-use-github-style] tt::before, .markdown-preview[data-use-github-style] code::after, .markdown-preview[data-use-github-style] tt::after { letter-spacing: -0.2em; content: " "; }
+.markdown-preview[data-use-github-style] code br, .markdown-preview[data-use-github-style] tt br { display: none; }
+.markdown-preview[data-use-github-style] del code { text-decoration: inherit; }
+.markdown-preview[data-use-github-style] pre > code { padding: 0px; margin: 0px; font-size: 100%; word-break: normal; white-space: pre; border: 0px; background: transparent; }
+.markdown-preview[data-use-github-style] .highlight { margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] .highlight pre, .markdown-preview[data-use-github-style] pre { padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; border-radius: 3px; background-color: rgb(247, 247, 247); }
+.markdown-preview[data-use-github-style] .highlight pre { margin-bottom: 0px; word-break: normal; }
+.markdown-preview[data-use-github-style] pre { word-wrap: normal; }
+.markdown-preview[data-use-github-style] pre code, .markdown-preview[data-use-github-style] pre tt { display: inline; max-width: initial; padding: 0px; margin: 0px; overflow: initial; line-height: inherit; word-wrap: normal; border: 0px; background-color: transparent; }
+.markdown-preview[data-use-github-style] pre code::before, .markdown-preview[data-use-github-style] pre tt::before, .markdown-preview[data-use-github-style] pre code::after, .markdown-preview[data-use-github-style] pre tt::after { content: normal; }
+.markdown-preview[data-use-github-style] kbd { display: inline-block; padding: 3px 5px; font-size: 11px; line-height: 10px; color: rgb(85, 85, 85); vertical-align: middle; border-width: 1px; border-style: solid; border-color: rgb(204, 204, 204) rgb(204, 204, 204) rgb(187, 187, 187); border-radius: 3px; box-shadow: rgb(187, 187, 187) 0px -1px 0px inset; background-color: rgb(252, 252, 252); }
+.markdown-preview[data-use-github-style] a { color: rgb(51, 122, 183); }
+.markdown-preview[data-use-github-style] code { color: inherit; }
+.markdown-preview[data-use-github-style] pre.editor-colors { padding: 0.8em 1em; margin-bottom: 1em; font-size: 0.85em; border-radius: 4px; overflow: auto; }
+.scrollbars-visible-always .markdown-preview pre.editor-colors .vertical-scrollbar, .scrollbars-visible-always .markdown-preview pre.editor-colors .horizontal-scrollbar { visibility: hidden; }
+.scrollbars-visible-always .markdown-preview pre.editor-colors:hover .vertical-scrollbar, .scrollbars-visible-always .markdown-preview pre.editor-colors:hover .horizontal-scrollbar { visibility: visible; }
+.markdown-preview .task-list-item-checkbox { position: absolute; margin: 0.25em 0px 0px -1.4em; }
+.markdown-preview { color: rgba(238, 255, 255, 0.8); background-color: rgb(42, 55, 62); }
+.markdown-preview code { color: rgba(238, 255, 255, 0.8); background-color: rgb(46, 61, 68); }
+.markdown-preview h1, .markdown-preview h2, .markdown-preview h3 { border-color: rgba(238, 255, 255, 0.0980392); }
+.markdown-preview table tr { border-color: rgb(59, 77, 86); background: none; }
+.markdown-preview table tr:nth-child(2n) { background-color: rgb(46, 61, 68); }
+.markdown-preview table th, .markdown-preview table td { border-color: rgb(59, 77, 86); }
+.markdown-preview table th { background-color: rgb(54, 72, 80); }
+.markdown-preview small { font-size: 80%; }
+.bracket-matcher .region {
+  border-bottom: 1px dotted lime;
+  position: absolute;
+}
+
+* {
+  color: rgba(0,0,0,40);
+}
+.spell-check-misspelling .region {
+  border-bottom: 2px dotted rgba(255, 51, 51, 0.75);
+}
+.spell-check-corrections {
+  width: 25em !important;
+}
+
+pre.editor-colors {
+  background-color: #263238;
+  color: #eeffff;
+}
+pre.editor-colors .wrap-guide {
+  background-color: #2b3940;
+}
+pre.editor-colors .indent-guide {
+  color: #2b3940;
+}
+pre.editor-colors .invisible-character {
+  color: #373b41;
+}
+pre.editor-colors .cursor-line {
+  background-color: #212b30;
+}
+pre.editor-colors .gutter {
+  background-color: #263238;
+  color: rgba(238, 255, 255, 0.2);
+}
+pre.editor-colors .gutter .line-number.cursor-line {
+  background-color: #212b30;
+  color: rgba(238, 255, 255, 0.2);
+}
+pre.editor-colors .gutter .line-number.cursor-line-no-selection {
+  color: rgba(238, 255, 255, 0.2);
+}
+pre.editor-colors .fold-marker:after,
+pre.editor-colors .gutter .line-number.folded,
+pre.editor-colors .gutter .line-number:after {
+  color: #b2ccd6;
+}
+pre.editor-colors .invisible {
+  color: #eeffff;
+}
+pre.editor-colors .cursor {
+  color: #009688;
+  border-width: 2px;
+}
+pre.editor-colors .selection .region {
+  background-color: #3b4d56;
+}
+pre.editor-colors .search-results .syntax--marker .region {
+  background-color: transparent;
+  border: 1px solid #b2ccd6;
+}
+pre.editor-colors .search-results .syntax--marker.current-result .region {
+  border: 1px solid #ffffff;
+}
+.syntax--comment {
+  color: #4f6875;
+}
+.syntax--keyword {
+  color: #c792ea;
+}
+.syntax--keyword.syntax--control {
+  color: #c792ea;
+}
+.syntax--keyword.syntax--control.syntax--elements {
+  color: #b2ccd6;
+}
+.syntax--keyword.syntax--operator {
+  color: #89ddf3;
+}
+.syntax--keyword.syntax--other.syntax--special-method {
+  color: #82aaff;
+}
+.syntax--keyword.syntax--other.syntax--unit {
+  color: #ffcb6b;
+}
+.syntax--storage {
+  color: #c792ea;
+}
+.syntax--constant {
+  color: #f07178;
+}
+.syntax--constant.syntax--character.syntax--escape {
+  color: #89ddf3;
+}
+.syntax--constant.syntax--numeric {
+  color: #f78c6a;
+}
+.syntax--constant.syntax--other.syntax--color {
+  color: #89ddf3;
+}
+.syntax--constant.syntax--other.syntax--symbol {
+  color: #c3e88d;
+}
+.syntax--variable {
+  color: #eeffff;
+}
+.syntax--variable.syntax--interpolation {
+  color: #eb434c;
+}
+.syntax--variable.syntax--parameter.syntax--function {
+  color: #f78c6a;
+}
+.syntax--variable.syntax--language {
+  color: #ff5370;
+}
+.syntax--variable.syntax--variable.syntax--object {
+  color: #ffcb6b;
+}
+.syntax--invalid.syntax--illegal {
+  background-color: #f07178;
+  color: #263238;
+}
+.syntax--string {
+  color: #c3e88d;
+}
+.syntax--string.syntax--regexp {
+  color: #89ddf3;
+}
+.syntax--string.syntax--regexp .syntax--source.syntax--ruby.syntax--embedded {
+  color: #ffcb6b;
+}
+.syntax--string.syntax--other.syntax--link {
+  color: #f07178;
+}
+.syntax--punctuation.syntax--definition.syntax--comment {
+  color: #4f6875;
+}
+.syntax--punctuation.syntax--definition.syntax--array,
+.syntax--punctuation.syntax--definition.syntax--parameters,
+.syntax--punctuation.syntax--definition.syntax--string,
+.syntax--punctuation.syntax--definition.syntax--variable {
+  color: #eeffff;
+}
+.syntax--punctuation.syntax--definition.syntax--array.syntax--begin,
+.syntax--punctuation.syntax--definition.syntax--parameters.syntax--begin,
+.syntax--punctuation.syntax--definition.syntax--string.syntax--begin,
+.syntax--punctuation.syntax--definition.syntax--variable.syntax--begin,
+.syntax--punctuation.syntax--definition.syntax--array.syntax--end,
+.syntax--punctuation.syntax--definition.syntax--parameters.syntax--end,
+.syntax--punctuation.syntax--definition.syntax--string.syntax--end,
+.syntax--punctuation.syntax--definition.syntax--variable.syntax--end {
+  color: #89ddf3;
+}
+.syntax--punctuation.syntax--definition.syntax--heading,
+.syntax--punctuation.syntax--definition.syntax--identity {
+  color: #82aaff;
+}
+.syntax--punctuation.syntax--definition.syntax--bold {
+  color: #ffe082;
+  font-weight: bold;
+}
+.syntax--punctuation.syntax--definition.syntax--italic {
+  color: #c792ea;
+  font-style: italic;
+}
+.syntax--punctuation.syntax--definition.syntax--entity {
+  color: #89ddf3;
+}
+.syntax--punctuation.syntax--section.syntax--array {
+  color: #89ddf3;
+}
+.syntax--punctuation.syntax--section.syntax--embedded {
+  color: #89ddf3;
+}
+.syntax--punctuation.syntax--separator.syntax--key-value {
+  color: #89ddf3;
+}
+.syntax--punctuation.syntax--terminator {
+  color: #89ddf3;
+}
+.syntax--support.syntax--class {
+  color: #ffcb6b;
+}
+.syntax--support.syntax--function {
+  color: #82aaff;
+}
+.syntax--support.syntax--function.syntax--any-method {
+  color: #82aaff;
+}
+.syntax--support.syntax--type.syntax--property-name {
+  color: #b2ccd6;
+}
+.syntax--support.syntax--variable.syntax--dom {
+  color: #ffcb6b;
+}
+.syntax--entity.syntax--name.syntax--function {
+  color: #82aaff;
+}
+.syntax--entity.syntax--name.syntax--type {
+  color: #eeffff;
+}
+.syntax--entity.syntax--other.syntax--inherited-class {
+  color: #c3e88d;
+}
+.syntax--entity.syntax--other.syntax--attribute-name.syntax--pseudo-element {
+  color: #c792ea;
+}
+.syntax--entity.syntax--other.syntax--attribute-name.syntax--attribute {
+  color: #c792ea;
+}
+.syntax--entity.syntax--name.syntax--class,
+.syntax--entity.syntax--name.syntax--type.syntax--class {
+  color: #ffcb6b;
+}
+.syntax--entity.syntax--name.syntax--section {
+  color: #82aaff;
+}
+.syntax--entity.syntax--name.syntax--tag {
+  color: #f07178;
+}
+.syntax--entity.syntax--other.syntax--attribute-name {
+  color: #ffcb6b;
+}
+.syntax--meta.syntax--class {
+  color: #ffe082;
+}
+.syntax--meta.syntax--delimiter.syntax--period {
+  color: #89ddf3;
+}
+.syntax--meta.syntax--link {
+  color: #ffcb6b;
+}
+.syntax--meta.syntax--require {
+  color: #82aaff;
+}
+.syntax--meta.syntax--selector {
+  color: #c792ea;
+}
+.syntax--meta.syntax--separator {
+  background-color: #373b41;
+  color: #eeffff;
+}
+.syntax--meta.syntax--brace.syntax--round,
+.syntax--meta.syntax--brace.syntax--square {
+  color: #89ddf3;
+}
+.syntax--none {
+  color: #eeffff;
+}
+.syntax--markup.syntax--bold {
+  color: #ffcb6b;
+  font-weight: bold;
+}
+.syntax--markup.syntax--changed {
+  color: #c792ea;
+}
+.syntax--markup.syntax--deleted {
+  color: #f07178;
+}
+.syntax--markup.syntax--italic {
+  color: #c792ea;
+  font-style: italic;
+}
+.syntax--markup.syntax--heading .syntax--punctuation.syntax--definition.syntax--heading {
+  color: #82aaff;
+}
+.syntax--markup.syntax--inserted {
+  color: #c3e88d;
+}
+.syntax--markup.syntax--list {
+  color: #f07178;
+}
+.syntax--markup.syntax--quote {
+  color: #ffcb6b;
+}
+.syntax--markup.syntax--raw.syntax--inline {
+  color: #c3e88d;
+}
+.syntax--source.syntax--gfm .syntax--markup {
+  -webkit-font-smoothing: auto;
+}
+.syntax--source.syntax--gfm .syntax--markup.syntax--heading {
+  color: #c3e88d;
+}
+pre.editor-colors[mini] .scroll-view {
+  padding-left: 1px;
+}
+pre.editor-colors .highlight .region.bracket-matcher {
+  z-index: inherit;
+}
+.bracket-matcher .region {
+  border-bottom: 1px solid #009688;
+  box-sizing: border-box;
+  background-color: rgba(238, 255, 255, 0.1);
+  box-shadow: inset 0 -1px 0 #009688;
+}
+.syntax--css .syntax--support.syntax--constant {
+  color: #89ddf3;
+}
+.syntax--css .syntax--support.syntax--property-name {
+  color: #73d1c8;
+}
+.syntax--css .syntax--keyword.syntax--unit {
+  color: #ffe082;
+}
+.syntax--css .syntax--constant.syntax--color {
+  color: #f78c6a;
+}
+.syntax--css .syntax--constant.syntax--color .syntax--punctuation {
+  color: currentColor;
+}
+.syntax--css .syntax--entity.syntax--tag {
+  color: #b2ccd6;
+}
+.syntax--html .syntax--meta.syntax--tag.syntax--doctype {
+  color: #c792ea;
+}
+.syntax--html .syntax--punctuation.syntax--tag {
+  color: #89ddf3;
+}
+.syntax--js .syntax--constant {
+  color: #eeffff;
+}
+.syntax--js .syntax--support.syntax--variable.syntax--property {
+  color: #eeffff;
+}
+.syntax--js .syntax--entity.syntax--name.syntax--type {
+  color: #ffcb6b;
+}
+.syntax--js .syntax--variable.syntax--property {
+  color: #82aaff;
+}
+.syntax--js .syntax--variable.syntax--other.syntax--object {
+  color: #eeffff;
+}
+.syntax--js .syntax--constant.syntax--numeric {
+  color: #f78c6a;
+}
+.syntax--js .syntax--constant.syntax--boolean {
+  color: #f07178;
+}
+.syntax--json .syntax--meta.syntax--array.syntax--structure .syntax--string.syntax--quoted.syntax--double {
+  color: #c3e88d;
+}
+.syntax--json .syntax--meta.syntax--array.syntax--structure .syntax--string.syntax--quoted.syntax--double > * {
+  color: currentColor;
+}
+.syntax--json .syntax--meta.syntax--array.syntax--structure .syntax--string.syntax--quoted.syntax--double > *.syntax--punctuation.syntax--begin,
+.syntax--json .syntax--meta.syntax--array.syntax--structure .syntax--string.syntax--quoted.syntax--double > *.syntax--punctuation.syntax--end {
+  color: #89ddf3;
+}
+.syntax--json .syntax--meta .syntax--punctuation.syntax--separator.syntax--key-value + .syntax--string.syntax--quoted {
+  color: #c3e88d;
+}
+.syntax--json .syntax--meta .syntax--punctuation.syntax--separator.syntax--key-value + .syntax--string.syntax--quoted * {
+  color: currentColor;
+}
+.syntax--json .syntax--meta .syntax--punctuation.syntax--separator.syntax--key-value + .syntax--string.syntax--quoted *.syntax--punctuation.syntax--begin,
+.syntax--json .syntax--meta .syntax--punctuation.syntax--separator.syntax--key-value + .syntax--string.syntax--quoted *.syntax--punctuation.syntax--end {
+  color: #89ddf3;
+}
+.syntax--json .syntax--meta.syntax--structure.syntax--dictionary .syntax--string.syntax--quoted {
+  color: #c792ea;
+}
+.syntax--json .syntax--meta.syntax--structure.syntax--dictionary .syntax--string.syntax--quoted .syntax--punctuation.syntax--string {
+  color: currentColor;
+}
+.syntax--php .syntax--keyword.syntax--operator.syntax--assignment {
+  color: #c792ea;
+}
+.syntax--php .syntax--meta.syntax--object {
+  color: #82aaff;
+}
+.syntax--php .syntax--meta.syntax--arguments {
+  color: #c792ea;
+}
+.syntax--python .syntax--meta.syntax--function-call {
+  color: #82aaff;
+}
+.syntax--python .syntax--meta.syntax--function-call .syntax--punctuation {
+  color: #89ddf3;
+}
+.syntax--python .syntax--meta.syntax--function-call .syntax--arguments {
+  color: #7986cb;
+}
+.syntax--python .syntax--meta.syntax--function-call .syntax--arguments.syntax--punctuation {
+  color: #89ddf3;
+}
+.syntax--python .syntax--variable.syntax--self {
+  color: #ff5370;
+}
+.syntax--python .syntax--meta .syntax--punctuation.syntax--inheritance,
+.syntax--python .syntax--meta .syntax--punctuation.syntax--section {
+  color: #89ddf3;
+}
+.syntax--python .syntax--variable.syntax--parameter {
+  color: #89ddf3;
+}
+.syntax--python .syntax--keyword.syntax--operator {
+  color: #c792ea;
+}
+.syntax--ruby .syntax--punctuation.syntax--separator {
+  color: #89ddf3;
+}
+.syntax--ruby .syntax--variable.syntax--block {
+  color: #f07178;
+}
+.syntax--ruby .syntax--variable.syntax--instance {
+  color: #f07178;
+}
+.syntax--ruby .syntax--variable.syntax--instance .syntax--punctuation {
+  color: currentColor;
+}
+</style>
+  </head>
+  <body class='markdown-preview' data-use-github-style><h1 id="physics-notes">Physics notes</h1>
+<p>× + - ÷ Δ ∝ Ɛ σ</p>
+<h3 id="lesson-7">Lesson 7</h3>
+<p><strong>internal energy</strong></p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>An&nbsp;object&nbsp;at&nbsp;any&nbsp;temperature&nbsp;above&nbsp;absolute&nbsp;zero&nbsp;has&nbsp;internal&nbsp;energy&nbsp;(U).</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>This&nbsp;energy&nbsp;is&nbsp;due&nbsp;to&nbsp;the&nbsp;motion&nbsp;of&nbsp;the&nbsp;atoms&nbsp;or&nbsp;molecules&nbsp;of&nbsp;the&nbsp;object.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>This&nbsp;internal&nbsp;energy&nbsp;depends&nbsp;on:</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--bullet-point syntax--star syntax--text"><span>&nbsp;&nbsp;</span><span class="syntax--punctuation syntax--definition syntax--item syntax--text"><span>*</span></span><span>&nbsp;Temperature</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--bullet-point syntax--star syntax--text"><span>&nbsp;&nbsp;</span><span class="syntax--punctuation syntax--definition syntax--item syntax--text"><span>*</span></span><span>&nbsp;Composition</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--bullet-point syntax--star syntax--text"><span>&nbsp;&nbsp;</span><span class="syntax--punctuation syntax--definition syntax--item syntax--text"><span>*</span></span><span>&nbsp;State</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--bullet-point syntax--star syntax--text"><span>&nbsp;&nbsp;</span><span class="syntax--punctuation syntax--definition syntax--item syntax--text"><span>*</span></span><span>&nbsp;Mass</span></span></span></div></pre><p><strong>The Zeroeth law of thermodynamics</strong></p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>When&nbsp;internal&nbsp;energy&nbsp;is&nbsp;transferred&nbsp;from&nbsp;one&nbsp;object&nbsp;to&nbsp;another,</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>the&nbsp;direction&nbsp;of&nbsp;the&nbsp;transfer&nbsp;depends&nbsp;on&nbsp;the&nbsp;temperature&nbsp;difference</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>not&nbsp;only&nbsp;the&nbsp;internal&nbsp;energy.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Heat&nbsp;is&nbsp;the&nbsp;energy&nbsp;transferred&nbsp;from&nbsp;one&nbsp;object&nbsp;of&nbsp;higher&nbsp;temperature</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>to&nbsp;an&nbsp;object&nbsp;at&nbsp;a&nbsp;lower&nbsp;temperature.</span></span></span></div></pre><p><strong>Heat vs. Temperature</strong></p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>Heat:&nbsp;is&nbsp;a&nbsp;measure&nbsp;of&nbsp;the&nbsp;total&nbsp;kinetic&nbsp;energy&nbsp;of&nbsp;all&nbsp;the&nbsp;molecules&nbsp;in&nbsp;the&nbsp;system</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;Temperature:&nbsp;Is&nbsp;the&nbsp;average&nbsp;kinetic&nbsp;energy&nbsp;of&nbsp;all&nbsp;the&nbsp;molecules&nbsp;in&nbsp;an&nbsp;object.</span></span></span></div></pre><p><strong>Kelvin and Celsius</strong></p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>The&nbsp;kelvin&nbsp;degree&nbsp;is&nbsp;the&nbsp;same&nbsp;as&nbsp;the&nbsp;Celsius&nbsp;degree,&nbsp;only&nbsp;273&nbsp;lower&nbsp;than&nbsp;Celsius.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>0&nbsp;Kelvin&nbsp;is&nbsp;also&nbsp;known&nbsp;as&nbsp;absolute&nbsp;0.&nbsp;The&nbsp;point&nbsp;at&nbsp;which&nbsp;atoms&nbsp;stop&nbsp;moving.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>The&nbsp;idea&nbsp;behind&nbsp;kelvin&nbsp;is&nbsp;that&nbsp;as&nbsp;you&nbsp;cool&nbsp;down&nbsp;a&nbsp;gas&nbsp;it&#39;s&nbsp;volume&nbsp;decreases.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>If&nbsp;you&nbsp;were&nbsp;to&nbsp;cool&nbsp;a&nbsp;gas&nbsp;far&nbsp;enough&nbsp;without&nbsp;it&nbsp;changing&nbsp;states&nbsp;then&nbsp;at&nbsp;-273C&nbsp;it</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>would&nbsp;have&nbsp;a&nbsp;volume&nbsp;of&nbsp;0.</span></span></span></div></pre><p><strong>The Celsius scale</strong></p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>the&nbsp;original&nbsp;idea&nbsp;for&nbsp;Celsius&nbsp;was&nbsp;that&nbsp;0&nbsp;degrees&nbsp;is&nbsp;the&nbsp;freezing&nbsp;point&nbsp;of&nbsp;water,</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>100&nbsp;was&nbsp;the&nbsp;boiling&nbsp;point.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>The&nbsp;new&nbsp;idea&nbsp;for&nbsp;Celsius&nbsp;is&nbsp;the&nbsp;triple&nbsp;point&nbsp;idea.&nbsp;The&nbsp;triple&nbsp;point&nbsp;of&nbsp;a&nbsp;material</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>is&nbsp;the&nbsp;point&nbsp;where&nbsp;it&nbsp;can&nbsp;be&nbsp;a&nbsp;solid&nbsp;liquid&nbsp;and&nbsp;a&nbsp;gas&nbsp;all&nbsp;at&nbsp;the</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>same&nbsp;temperature.&nbsp;For&nbsp;water,&nbsp;this&nbsp;temperature&nbsp;is&nbsp;at&nbsp;0&nbsp;degrees&nbsp;Celsius.</span></span></span></div></pre><p><strong>First law of thermodynamics</strong></p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>The&nbsp;change&nbsp;in&nbsp;internal&nbsp;energy&nbsp;of&nbsp;a&nbsp;system&nbsp;is&nbsp;equal&nbsp;to&nbsp;the&nbsp;heat&nbsp;added&nbsp;to&nbsp;the</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>system&nbsp;minus&nbsp;the&nbsp;work&nbsp;done&nbsp;by&nbsp;the&nbsp;system.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>ΔU&nbsp;=&nbsp;Q&nbsp;-&nbsp;W.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>ΔU:&nbsp;Change&nbsp;in&nbsp;internal&nbsp;energy</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Q:&nbsp;Heat&nbsp;added&nbsp;to&nbsp;the&nbsp;system</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>W:&nbsp;Work&nbsp;done&nbsp;by&nbsp;the&nbsp;system</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>When&nbsp;a&nbsp;kettle&nbsp;heats&nbsp;up&nbsp;water,&nbsp;it&nbsp;loses&nbsp;an&nbsp;amount&nbsp;of&nbsp;heat&nbsp;to&nbsp;the&nbsp;water,&nbsp;but</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>also&nbsp;loses&nbsp;an&nbsp;amount&nbsp;of&nbsp;heat&nbsp;to&nbsp;the&nbsp;air&nbsp;around&nbsp;it.&nbsp;The&nbsp;water&nbsp;gains&nbsp;the&nbsp;energy</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>lost&nbsp;by&nbsp;the&nbsp;kettle&nbsp;in&nbsp;the&nbsp;form&nbsp;of&nbsp;heat.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Some&nbsp;energy&nbsp;is&nbsp;lost&nbsp;from&nbsp;a&nbsp;system.&nbsp;In&nbsp;the&nbsp;example&nbsp;of&nbsp;the&nbsp;kettle,&nbsp;some&nbsp;energy</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>goes&nbsp;into&nbsp;the&nbsp;air&nbsp;instead&nbsp;of&nbsp;into&nbsp;the&nbsp;water.&nbsp;When&nbsp;energy&nbsp;is&nbsp;lost&nbsp;like&nbsp;this&nbsp;it</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>is&nbsp;being&nbsp;dissipated.</span></span></span></div></pre><p><strong>Sanki diagrams</strong></p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>a&nbsp;sanki&nbsp;diamgram&nbsp;summarises&nbsp;all&nbsp;the&nbsp;energy&nbsp;transfers&nbsp;taking&nbsp;place&nbsp;of&nbsp;a&nbsp;system.</span></span></span></div></pre><p><img src="C:\Users\Patchy\Google Drive\School work\2017\Physics\sankey.gif" alt="alt" title="Title"></p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>The&nbsp;bigger&nbsp;the&nbsp;arrow,&nbsp;the&nbsp;more&nbsp;energy&nbsp;is&nbsp;being&nbsp;transferred.</span></span></span></div></pre><p><strong>Heating water experiment</strong></p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Aim:</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>To&nbsp;investigate&nbsp;the&nbsp;relationship&nbsp;between&nbsp;mass&nbsp;and&nbsp;quantity&nbsp;of&nbsp;heat&nbsp;required&nbsp;to&nbsp;change&nbsp;the&nbsp;temperature&nbsp;and&nbsp;to&nbsp;determine&nbsp;the&nbsp;specific&nbsp;heat&nbsp;of&nbsp;water.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Equipment</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>●&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;low&nbsp;voltage&nbsp;immersion&nbsp;heater&nbsp;(from&nbsp;a&nbsp;calorimeter)</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;●&nbsp;&nbsp;&nbsp;&nbsp;Metal&nbsp;beaker&nbsp;from&nbsp;calorimeter&nbsp;(</span><span class="syntax--storage syntax--type syntax--class syntax--nb"><span>NB</span></span><span>:&nbsp;JMSS&nbsp;calorimeters&nbsp;beakers&nbsp;are&nbsp;max&nbsp;100&nbsp;mL&nbsp;capacity)</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;●&nbsp;&nbsp;&nbsp;&nbsp;12V&nbsp;power&nbsp;supply</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;●&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;retort&nbsp;stand&nbsp;and&nbsp;2&nbsp;clamps</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;●&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;sealed&nbsp;thermistor&nbsp;probe&nbsp;(-20&nbsp;–&nbsp;110&nbsp;oC)&nbsp;or&nbsp;thermometer</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;●&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;multimeters&nbsp;(Ammeter&nbsp;set&nbsp;to&nbsp;10A&nbsp;scale)</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;●&nbsp;&nbsp;&nbsp;&nbsp;Mass&nbsp;balance</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;●&nbsp;&nbsp;&nbsp;&nbsp;Beaker</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;●&nbsp;&nbsp;&nbsp;&nbsp;Water</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Procedure:</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>1)&nbsp;&nbsp;&nbsp;&nbsp;Weigh&nbsp;the&nbsp;copper&nbsp;beaker.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;2)&nbsp;&nbsp;&nbsp;&nbsp;Measure&nbsp;50&nbsp;ml&nbsp;of&nbsp;water&nbsp;and&nbsp;reweigh&nbsp;the&nbsp;beaker.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;3)&nbsp;&nbsp;&nbsp;&nbsp;Insert&nbsp;the&nbsp;sealed&nbsp;thermistor&nbsp;and&nbsp;the&nbsp;immersion&nbsp;heater&nbsp;into&nbsp;the&nbsp;lid&nbsp;and&nbsp;place&nbsp;the&nbsp;lid&nbsp;on&nbsp;the&nbsp;copper&nbsp;beaker.&nbsp;Insert&nbsp;the&nbsp;beaker&nbsp;into&nbsp;the&nbsp;insulated&nbsp;holder.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;4)&nbsp;&nbsp;&nbsp;&nbsp;Clamp&nbsp;the&nbsp;thermistor&nbsp;in&nbsp;place&nbsp;so&nbsp;that&nbsp;it&nbsp;is&nbsp;not&nbsp;touching&nbsp;the&nbsp;bottom&nbsp;or&nbsp;sides&nbsp;of&nbsp;the&nbsp;calorimeter.&nbsp;Clamp&nbsp;the&nbsp;immersion&nbsp;heater&nbsp;in&nbsp;place&nbsp;so&nbsp;that&nbsp;it&nbsp;is&nbsp;not&nbsp;touching&nbsp;the&nbsp;calorimeter&nbsp;OR&nbsp;the&nbsp;thermometer.&nbsp;Allow&nbsp;it&nbsp;to&nbsp;stand&nbsp;for&nbsp;5&nbsp;minutes.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;5)&nbsp;&nbsp;&nbsp;&nbsp;Connect&nbsp;the&nbsp;immersion&nbsp;heater&nbsp;to&nbsp;the&nbsp;power&nbsp;supply.&nbsp;The&nbsp;current&nbsp;is&nbsp;measured&nbsp;in&nbsp;series&nbsp;and&nbsp;the&nbsp;voltage&nbsp;is&nbsp;measured&nbsp;in&nbsp;parallel.&nbsp;Set&nbsp;the&nbsp;power&nbsp;supply&nbsp;to&nbsp;6V.&nbsp;Set&nbsp;the&nbsp;ammeter&nbsp;to&nbsp;10&nbsp;A&nbsp;scale.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;6)&nbsp;&nbsp;&nbsp;&nbsp;Open&nbsp;the&nbsp;SPARKVUE&nbsp;datalogger&nbsp;and&nbsp;click&nbsp;on&nbsp;Temperature&nbsp;sensor.&nbsp;Click&nbsp;on&nbsp;SHOW.&nbsp;Check&nbsp;the&nbsp;calibration&nbsp;using&nbsp;the&nbsp;tools&nbsp;menu&nbsp;&nbsp;&nbsp;and&nbsp;adjust&nbsp;to&nbsp;room&nbsp;temperature&nbsp;if&nbsp;necessary.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;7)&nbsp;&nbsp;&nbsp;&nbsp;Press&nbsp;the&nbsp;play&nbsp;button&nbsp;(&nbsp;)&nbsp;at&nbsp;the&nbsp;same&nbsp;time&nbsp;as&nbsp;you&nbsp;turn&nbsp;on&nbsp;the&nbsp;power&nbsp;supply&nbsp;to&nbsp;the&nbsp;heater&nbsp;and&nbsp;start&nbsp;stirring&nbsp;the&nbsp;water.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;8)&nbsp;&nbsp;&nbsp;&nbsp;Continue&nbsp;reading&nbsp;for&nbsp;the&nbsp;time&nbsp;it&nbsp;takes&nbsp;for&nbsp;the&nbsp;temperature&nbsp;to&nbsp;rise&nbsp;by&nbsp;at&nbsp;least&nbsp;10&nbsp;Co.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;9)&nbsp;&nbsp;&nbsp;&nbsp;Stop&nbsp;the&nbsp;experiment&nbsp;by&nbsp;pressing&nbsp;the&nbsp;play&nbsp;button&nbsp;once&nbsp;again.&nbsp;Export&nbsp;the&nbsp;results&nbsp;to&nbsp;a&nbsp;.txt&nbsp;file&nbsp;(which&nbsp;can&nbsp;be&nbsp;later&nbsp;imported&nbsp;into&nbsp;a&nbsp;spreadsheet)&nbsp;by&nbsp;selecting&nbsp;the&nbsp;triangle&nbsp;in&nbsp;the&nbsp;top&nbsp;left&nbsp;of&nbsp;the&nbsp;screen.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;10)&nbsp;&nbsp;&nbsp;&nbsp;Pour&nbsp;out&nbsp;the&nbsp;water&nbsp;and&nbsp;fill&nbsp;the&nbsp;cup&nbsp;with&nbsp;cold&nbsp;water.&nbsp;Allow&nbsp;it&nbsp;to&nbsp;stand&nbsp;with&nbsp;the&nbsp;heater&nbsp;and&nbsp;thermistor&nbsp;in&nbsp;the&nbsp;water&nbsp;until&nbsp;the&nbsp;temperature&nbsp;of&nbsp;the&nbsp;system&nbsp;is&nbsp;back&nbsp;to&nbsp;room&nbsp;temperature.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;11)&nbsp;&nbsp;&nbsp;&nbsp;Weigh&nbsp;out&nbsp;65g&nbsp;of&nbsp;water&nbsp;and&nbsp;pour&nbsp;it&nbsp;into&nbsp;the&nbsp;cup.&nbsp;Replace&nbsp;the&nbsp;lid&nbsp;with&nbsp;the&nbsp;heater&nbsp;and&nbsp;thermistor.&nbsp;Allow&nbsp;it&nbsp;to&nbsp;stand&nbsp;for&nbsp;5&nbsp;minutes.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;12)&nbsp;&nbsp;&nbsp;&nbsp;Repeat&nbsp;the&nbsp;experiment&nbsp;from&nbsp;step&nbsp;5-9&nbsp;and&nbsp;collect&nbsp;data&nbsp;for&nbsp;the&nbsp;same&nbsp;time&nbsp;period.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;13)&nbsp;&nbsp;&nbsp;&nbsp;Repeat&nbsp;the&nbsp;experiment&nbsp;for&nbsp;80&nbsp;g&nbsp;and&nbsp;95&nbsp;g&nbsp;of&nbsp;water.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;14)&nbsp;&nbsp;&nbsp;&nbsp;Export&nbsp;your&nbsp;results&nbsp;for&nbsp;each&nbsp;trial.</span></span></span></div></pre><p> <strong>Converting between celsius and kelvin</strong></p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>T:&nbsp;temperature</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;K:&nbsp;kelvin</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;C:&nbsp;Celsius</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>T(k)&nbsp;=&nbsp;T(c)&nbsp;+&nbsp;273</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;T(c)&nbsp;=&nbsp;T(k)&nbsp;-&nbsp;273</span></span></span></div></pre><hr>
+<h3 id="lesson-8">Lesson 8</h3>
+<p><a href="https://docs.google.com/presentation/d/1SUthhd5QmFqwAgjDpTVwzLAD6EZX7AAFPPUAqKBQGVI/edit#slide=id.g11f35baf3e_2_14">link to the slides for this lesson</a></p>
+<p> <strong>The amount of energy needed to change the temperature of something depends on:</strong></p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>Mass:&nbsp;the&nbsp;more&nbsp;mass,&nbsp;the&nbsp;more&nbsp;energy&nbsp;needed&nbsp;to&nbsp;change&nbsp;something&#39;s&nbsp;temperature.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;Material:&nbsp;Different&nbsp;materials&nbsp;conduct&nbsp;in&nbsp;different&nbsp;ways&nbsp;and&nbsp;therefore&nbsp;take&nbsp;different&nbsp;amounts&nbsp;of&nbsp;energy&nbsp;to&nbsp;heat&nbsp;up.</span></span></span></div></pre><p> <strong>Specific heat capacity</strong></p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>The&nbsp;specific&nbsp;heat&nbsp;capacity&nbsp;of&nbsp;a&nbsp;substance&nbsp;is&nbsp;the&nbsp;energy&nbsp;required&nbsp;to&nbsp;raise&nbsp;the&nbsp;temperature&nbsp;of&nbsp;1kg&nbsp;of&nbsp;that&nbsp;substance&nbsp;by&nbsp;1K&nbsp;(or&nbsp;1°C).</span></span></span></div></pre><p>Specific heat capacity of substances</p>
+<p><img src="C:\Users\Patchy\Google Drive\School work\2017\Physics\unit5_5a_secondgraf.gif" alt="alt"></p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>in&nbsp;other&nbsp;words;&nbsp;to&nbsp;change&nbsp;1kg&nbsp;of&nbsp;water&nbsp;by&nbsp;1&nbsp;degree&nbsp;you&nbsp;would&nbsp;need&nbsp;4186&nbsp;Joules</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>ΔQ&nbsp;=&nbsp;mcΔT</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Q:&nbsp;Energy&nbsp;transferred&nbsp;(J)</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>m:&nbsp;mass&nbsp;(kg)</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>c:&nbsp;specific&nbsp;heat&nbsp;capacity,&nbsp;the&nbsp;property&nbsp;of&nbsp;the&nbsp;metal&nbsp;(J/Kg/K).</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>ΔT:&nbsp;Change&nbsp;in&nbsp;temperature&nbsp;(K)</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>example&nbsp;question:</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>How&nbsp;much&nbsp;energy&nbsp;is&nbsp;needed&nbsp;to&nbsp;increase&nbsp;the&nbsp;temperature&nbsp;of&nbsp;500&nbsp;g&nbsp;of&nbsp;lead&nbsp;from&nbsp;20ºC&nbsp;to&nbsp;45ºC?&nbsp;The&nbsp;specific&nbsp;heat&nbsp;capacity&nbsp;of&nbsp;lead&nbsp;is&nbsp;128&nbsp;J/kg&nbsp;ºC.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;mass&nbsp;of&nbsp;lead&nbsp;=&nbsp;500&nbsp;÷&nbsp;1000&nbsp;=&nbsp;0.5&nbsp;kg</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;temperature&nbsp;change&nbsp;=&nbsp;45&nbsp;–&nbsp;20&nbsp;=&nbsp;25ºC</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;energy&nbsp;needed&nbsp;=&nbsp;m&nbsp;×&nbsp;c&nbsp;×&nbsp;ΔT</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;energy&nbsp;needed&nbsp;=&nbsp;0.5&nbsp;×&nbsp;128&nbsp;×&nbsp;25&nbsp;&nbsp;=&nbsp;1600&nbsp;J&nbsp;(1.6&nbsp;kJ)</span></span></span></div></pre><p><a href="https://docs.google.com/spreadsheets/d/1imcTpptmXH8m-dDLrBbHbnujiecdI97G-PdJrqEUpVI/edit?ts=58a0efa9#gid=553936085" title="Title"><strong>Link to data from prac</strong></a></p>
+<p><strong>Specific heat capacity summary</strong></p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>When&nbsp;heat&nbsp;is&nbsp;transferred&nbsp;to&nbsp;or&nbsp;from&nbsp;a&nbsp;system&nbsp;or&nbsp;object,&nbsp;the&nbsp;temperature&nbsp;change&nbsp;depends&nbsp;upon&nbsp;the&nbsp;amount&nbsp;of&nbsp;energy&nbsp;transferred,&nbsp;the&nbsp;mass&nbsp;of&nbsp;the&nbsp;material(s)</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>and&nbsp;the&nbsp;specific&nbsp;heat&nbsp;capacity&nbsp;of&nbsp;the&nbsp;materials:</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>ΔQ&nbsp;=&nbsp;mcΔT</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>A&nbsp;substance&nbsp;will&nbsp;have&nbsp;different&nbsp;specific&nbsp;heat&nbsp;capacities&nbsp;in&nbsp;different&nbsp;states.</span></span></span></div></pre><hr>
+<h3 id="lesson-9">Lesson 9</h3>
+<p><strong>Which melts first?</strong></p>
+<p>  So we have an ice cube which we placed on surfaces with different materials and we want to guess which one will melt first.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Rubber</th>
+<th style="text-align:center">Wood</th>
+<th style="text-align:right">Plastic</th>
+<th>Metal</th>
+<th>Polystyrene</th>
+<th>Ceramic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Which will melt first [guess]</strong></td>
+<td>5</td>
+<td style="text-align:center">3</td>
+<td style="text-align:right">4</td>
+<td>1</td>
+<td>6</td>
+<td>2</td>
+</tr>
+<tr>
+<td><strong>Specific heat capacity</strong></td>
+<td>250</td>
+<td style="text-align:center">1674</td>
+<td style="text-align:right">1250</td>
+<td>600</td>
+<td>1110</td>
+<td>850</td>
+</tr>
+</tbody>
+</table>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Remember&nbsp;that&nbsp;specific&nbsp;energy&nbsp;is&nbsp;the&nbsp;amount&nbsp;of&nbsp;energy&nbsp;it&nbsp;takes&nbsp;to&nbsp;raise&nbsp;1kg&nbsp;of&nbsp;a&nbsp;material&nbsp;by&nbsp;1&nbsp;degree.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Therefore&nbsp;a&nbsp;lower&nbsp;specific&nbsp;heat&nbsp;capacity,&nbsp;the&nbsp;easier&nbsp;it&nbsp;is&nbsp;to&nbsp;heat&nbsp;it&nbsp;up.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>The&nbsp;reason&nbsp;the&nbsp;top&nbsp;of&nbsp;a&nbsp;hot&nbsp;place&nbsp;heats&nbsp;faster&nbsp;is&nbsp;because&nbsp;it&nbsp;has&nbsp;ridges&nbsp;which&nbsp;are&nbsp;designed&nbsp;to&nbsp;allow&nbsp;air&nbsp;to&nbsp;flow&nbsp;underneath.</span></span></span></div></pre><table>
+<thead>
+<tr>
+<th>Time</th>
+<th>Inside beaker temp</th>
+<th>Outside beaker temp</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>43C</td>
+<td>25C</td>
+</tr>
+<tr>
+<td>1</td>
+<td>35C</td>
+<td>30C</td>
+</tr>
+<tr>
+<td>2</td>
+<td>33C</td>
+<td>33C</td>
+</tr>
+</tbody>
+</table>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>We&nbsp;can&nbsp;see&nbsp;that&nbsp;the&nbsp;temperature&nbsp;gained&nbsp;is&nbsp;~&nbsp;equal&nbsp;to&nbsp;the&nbsp;temperature&nbsp;lost.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>ΔTgain&nbsp;~=&nbsp;ΔTlost</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>(43&nbsp;-&nbsp;33)&nbsp;~=&nbsp;(33&nbsp;-&nbsp;25)</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>10&nbsp;~=&nbsp;8</span></span></span></div></pre><hr>
+<h2 id="chapters-1-2-1-3">Chapters 1.2 - 1.3</h2>
+<p><strong>Latent heat</strong></p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>The&nbsp;energy&nbsp;needed&nbsp;to&nbsp;change&nbsp;the&nbsp;state&nbsp;of&nbsp;a&nbsp;substance&nbsp;is&nbsp;called&nbsp;latent&nbsp;heat.&nbsp;Latent&nbsp;heat&nbsp;is&nbsp;&#39;hidden&#39;&nbsp;energy&nbsp;that&nbsp;has&nbsp;to&nbsp;be&nbsp;added&nbsp;or&nbsp;removed&nbsp;from&nbsp;a&nbsp;material&nbsp;in&nbsp;order</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>for&nbsp;the&nbsp;material&nbsp;to&nbsp;change&nbsp;state.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Latent&nbsp;heat&nbsp;equation:</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>Q&nbsp;=&nbsp;mL</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>Q:&nbsp;heat&nbsp;energy&nbsp;transferred&nbsp;in&nbsp;Joules(J)</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;&nbsp;&nbsp;m:&nbsp;mass&nbsp;in&nbsp;kg</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;&nbsp;&nbsp;L:&nbsp;the&nbsp;latent&nbsp;heat&nbsp;(J&nbsp;kg^-1)</span></span></span></div></pre><p><strong>Latent heat of fusion (Melting)</strong></p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>The&nbsp;reason&nbsp;for&nbsp;latent&nbsp;heat:</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>When&nbsp;an&nbsp;object&nbsp;is&nbsp;being&nbsp;heated&nbsp;the&nbsp;energy&nbsp;goes&nbsp;towards&nbsp;making&nbsp;the&nbsp;molecules&nbsp;in&nbsp;the&nbsp;solid&nbsp;move&nbsp;faster.&nbsp;When&nbsp;the&nbsp;object&nbsp;is&nbsp;beginning&nbsp;to&nbsp;melt&nbsp;the&nbsp;energy&nbsp;goes</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;towards&nbsp;pulling&nbsp;the&nbsp;bonds&nbsp;between&nbsp;the&nbsp;molecules&nbsp;apart&nbsp;instead.&nbsp;Because&nbsp;of&nbsp;this&nbsp;no&nbsp;change&nbsp;in&nbsp;temperature&nbsp;occurs.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>When&nbsp;changing&nbsp;from&nbsp;solid&nbsp;to&nbsp;liquid&nbsp;you&nbsp;are&nbsp;absorbing&nbsp;heat</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;when&nbsp;you&nbsp;change&nbsp;from&nbsp;liquid&nbsp;to&nbsp;a&nbsp;solid&nbsp;you&nbsp;are&nbsp;releasing&nbsp;heat.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>The&nbsp;amount&nbsp;of&nbsp;energy&nbsp;required&nbsp;to&nbsp;melt&nbsp;a&nbsp;solid&nbsp;is&nbsp;exactly&nbsp;the&nbsp;same&nbsp;as&nbsp;the&nbsp;amount&nbsp;of&nbsp;potential&nbsp;energy&nbsp;released&nbsp;when&nbsp;th&nbsp;liquid&nbsp;re-forms&nbsp;into&nbsp;a&nbsp;solid.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>This&nbsp;is&nbsp;called&nbsp;the&nbsp;Latent&nbsp;heat&nbsp;of&nbsp;fusion.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>For&nbsp;a&nbsp;given&nbsp;mass&nbsp;of&nbsp;a&nbsp;substance:</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>heat&nbsp;energy&nbsp;transferred&nbsp;=&nbsp;mass&nbsp;of&nbsp;substance&nbsp;×&nbsp;specific&nbsp;latent&nbsp;heat&nbsp;of&nbsp;fusion</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;Q&nbsp;=&nbsp;mL(fusion)</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>Why&nbsp;are&nbsp;steam&nbsp;burns&nbsp;more&nbsp;harmful&nbsp;than&nbsp;hot&nbsp;water&nbsp;burns?</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>Latent&nbsp;heat:&nbsp;The&nbsp;steam&nbsp;that&nbsp;comes&nbsp;in&nbsp;contact&nbsp;with&nbsp;your&nbsp;skin&nbsp;actually&nbsp;heats&nbsp;up&nbsp;when&nbsp;it&nbsp;becomes&nbsp;a&nbsp;liquid&nbsp;in&nbsp;contact&nbsp;with&nbsp;your&nbsp;skin.</span></span></span></div></pre><p><strong>Latent heat of vaporization (boiling)</strong></p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>It&nbsp;takes&nbsp;much&nbsp;more&nbsp;energy&nbsp;to&nbsp;go&nbsp;from&nbsp;liquid&nbsp;to&nbsp;gas&nbsp;than&nbsp;solid&nbsp;to&nbsp;liquid.&nbsp;This&nbsp;is&nbsp;because&nbsp;to&nbsp;create&nbsp;a&nbsp;gas&nbsp;you&nbsp;must&nbsp;break&nbsp;the&nbsp;intermolecular&nbsp;bonds.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>When&nbsp;a&nbsp;liquid(example,&nbsp;water)&nbsp;is&nbsp;changed&nbsp;to&nbsp;a&nbsp;gas&nbsp;all&nbsp;of&nbsp;the&nbsp;energy&nbsp;inputted&nbsp;goes&nbsp;straight&nbsp;to&nbsp;pulling&nbsp;apart&nbsp;the&nbsp;intermolecular&nbsp;bonds.&nbsp;The&nbsp;temperature&nbsp;will&nbsp;remain&nbsp;at&nbsp;100&nbsp;degrees&nbsp;Celsius&nbsp;until&nbsp;all&nbsp;of&nbsp;the&nbsp;bonds&nbsp;are&nbsp;broken.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>The&nbsp;energy&nbsp;needed&nbsp;to&nbsp;go&nbsp;from&nbsp;gas&nbsp;to&nbsp;liquid&nbsp;is&nbsp;the&nbsp;same&nbsp;as&nbsp;to&nbsp;go&nbsp;from&nbsp;liquid&nbsp;to&nbsp;gas.&nbsp;This&nbsp;energy&nbsp;is&nbsp;the&nbsp;latent&nbsp;heat&nbsp;of&nbsp;vaporization.</span></span></span></div></pre><p><strong>Evaporation and cooling</strong></p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Evaporation&nbsp;happens&nbsp;when&nbsp;surface&nbsp;molecules&nbsp;interact&nbsp;with&nbsp;the&nbsp;air&nbsp;and&nbsp;happen&nbsp;to&nbsp;vaporize&nbsp;at&nbsp;room&nbsp;temperature.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>The&nbsp;rate&nbsp;of&nbsp;evaporation&nbsp;of&nbsp;a&nbsp;liquid&nbsp;depends&nbsp;on:</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--bullet-point syntax--star syntax--text"><span>&nbsp;&nbsp;</span><span class="syntax--punctuation syntax--definition syntax--item syntax--text"><span>*</span></span><span>&nbsp;the&nbsp;volatility&nbsp;of&nbsp;the&nbsp;liquid</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--bullet-point syntax--star syntax--text"><span>&nbsp;&nbsp;</span><span class="syntax--punctuation syntax--definition syntax--item syntax--text"><span>*</span></span><span>&nbsp;the&nbsp;surface&nbsp;area:&nbsp;greater&nbsp;=&nbsp;faster</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--bullet-point syntax--star syntax--text"><span>&nbsp;&nbsp;</span><span class="syntax--punctuation syntax--definition syntax--item syntax--text"><span>*</span></span><span>&nbsp;the&nbsp;temperature:&nbsp;hotter&nbsp;=&nbsp;faster</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--bullet-point syntax--star syntax--text"><span>&nbsp;&nbsp;</span><span class="syntax--punctuation syntax--definition syntax--item syntax--text"><span>*</span></span><span>&nbsp;the&nbsp;humidity:&nbsp;more&nbsp;humid&nbsp;=&nbsp;slower</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--bullet-point syntax--star syntax--text"><span>&nbsp;&nbsp;</span><span class="syntax--punctuation syntax--definition syntax--item syntax--text"><span>*</span></span><span>&nbsp;air&nbsp;movement:&nbsp;faster&nbsp;air&nbsp;=&nbsp;faster&nbsp;Evaporation</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Cooling:</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>Cooling&nbsp;happens&nbsp;because&nbsp;the&nbsp;faster&nbsp;moving&nbsp;molecules&nbsp;evaporate&nbsp;first&nbsp;so&nbsp;the&nbsp;average&nbsp;kinetic&nbsp;energy&nbsp;of&nbsp;the&nbsp;remaining&nbsp;molecules&nbsp;is&nbsp;lowered.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;Because&nbsp;the&nbsp;average&nbsp;KE&nbsp;is&nbsp;lowered,&nbsp;the&nbsp;temperature&nbsp;is&nbsp;lowered.&nbsp;&nbsp;</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>Analogy:</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>There&nbsp;is&nbsp;a&nbsp;class&nbsp;of&nbsp;physics&nbsp;students.&nbsp;All&nbsp;the&nbsp;smart&nbsp;people&nbsp;in&nbsp;the&nbsp;class&nbsp;go&nbsp;on&nbsp;to&nbsp;do&nbsp;university&nbsp;leaving&nbsp;the&nbsp;rest&nbsp;behind.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;&nbsp;&nbsp;What&nbsp;happens&nbsp;to&nbsp;the&nbsp;grade&nbsp;average&nbsp;of&nbsp;the&nbsp;rest&nbsp;of&nbsp;the&nbsp;class?</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;&nbsp;&nbsp;It&nbsp;goes&nbsp;down.</span></span></span></div></pre><hr>
+<h2 id="chapters-1-4-1-5">Chapters 1.4 - 1.5</h2>
+<p><strong>Conduction</strong></p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Conduction&nbsp;is&nbsp;the&nbsp;process&nbsp;by&nbsp;which&nbsp;heat&nbsp;is&nbsp;transferred&nbsp;from&nbsp;one&nbsp;place&nbsp;to&nbsp;another&nbsp;without&nbsp;the&nbsp;net&nbsp;movement&nbsp;of&nbsp;particles.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>All&nbsp;materials&nbsp;conduct&nbsp;heat&nbsp;but&nbsp;solids&nbsp;are&nbsp;the&nbsp;most&nbsp;significant.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Conduction&nbsp;is&nbsp;hot&nbsp;much&nbsp;heat&nbsp;is&nbsp;transferred&nbsp;depending&nbsp;on&nbsp;units&nbsp;of&nbsp;thickness.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>materials&nbsp;conduct&nbsp;heat&nbsp;depending&nbsp;on&nbsp;their&nbsp;specific&nbsp;heat&nbsp;capacities.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>A&nbsp;material&nbsp;that&nbsp;conducts&nbsp;heat&nbsp;easily&nbsp;is&nbsp;a&nbsp;conductor.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>A&nbsp;material&nbsp;that&nbsp;does&nbsp;not&nbsp;is&nbsp;called&nbsp;an&nbsp;insulator.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Conduction&nbsp;happens&nbsp;in&nbsp;two&nbsp;ways:</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--bullet-point syntax--star syntax--text"><span>&nbsp;&nbsp;</span><span class="syntax--punctuation syntax--definition syntax--item syntax--text"><span>*</span></span><span>&nbsp;energy&nbsp;transfer&nbsp;through&nbsp;molecular&nbsp;or&nbsp;atomic&nbsp;collision</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--bullet-point syntax--star syntax--text"><span>&nbsp;&nbsp;</span><span class="syntax--punctuation syntax--definition syntax--item syntax--text"><span>*</span></span><span>&nbsp;energy&nbsp;transfer&nbsp;by&nbsp;free&nbsp;electrons</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Misconceptions&nbsp;about&nbsp;heat:</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>When&nbsp;you&nbsp;take&nbsp;a&nbsp;cake&nbsp;out&nbsp;of&nbsp;the&nbsp;oven&nbsp;the&nbsp;cake&nbsp;and&nbsp;the&nbsp;tin&nbsp;will&nbsp;be&nbsp;the&nbsp;same&nbsp;temperature.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;One&nbsp;of&nbsp;them&nbsp;will&nbsp;FEEL&nbsp;hotter&nbsp;but&nbsp;they&nbsp;will&nbsp;both&nbsp;be&nbsp;the&nbsp;same&nbsp;temperature.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;This&nbsp;is&nbsp;because&nbsp;metal&nbsp;is&nbsp;a&nbsp;better&nbsp;conductor&nbsp;and&nbsp;able&nbsp;to&nbsp;transfer&nbsp;the&nbsp;energy&nbsp;to&nbsp;your&nbsp;hand&nbsp;easier.</span></span></span></div></pre><table>
+<thead>
+<tr>
+<th style="text-align:left">Material</th>
+<th style="text-align:left">Rank</th>
+<th style="text-align:left">C</th>
+<th style="text-align:left">C rank</th>
+<th style="text-align:left">K</th>
+<th style="text-align:left">K rank</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Al</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">900</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">205.0</td>
+</tr>
+<tr>
+<td style="text-align:left">Brass</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">370</td>
+<td style="text-align:left">5</td>
+<td style="text-align:left">109</td>
+</tr>
+<tr>
+<td style="text-align:left">Iron</td>
+<td style="text-align:left">3</td>
+<td style="text-align:left">440</td>
+<td style="text-align:left">3</td>
+<td style="text-align:left">79.5</td>
+</tr>
+<tr>
+<td style="text-align:left">Nickel</td>
+<td style="text-align:left">4</td>
+<td style="text-align:left">440</td>
+<td style="text-align:left">3</td>
+<td style="text-align:left">90</td>
+</tr>
+<tr>
+<td style="text-align:left">Copper</td>
+<td style="text-align:left">5</td>
+<td style="text-align:left">390</td>
+<td style="text-align:left">4</td>
+<td style="text-align:left">38.5</td>
+</tr>
+<tr>
+<td style="text-align:left">Stainless Steel</td>
+<td style="text-align:left">6</td>
+<td style="text-align:left">510</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">50.2</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Thermal transfer by collision</strong>``</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Kinetic&nbsp;particle&nbsp;model&nbsp;tells&nbsp;us&nbsp;that&nbsp;the&nbsp;particles&nbsp;in&nbsp;a&nbsp;system&nbsp;are&nbsp;always&nbsp;moving&nbsp;about&nbsp;bumping&nbsp;into&nbsp;each&nbsp;other.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>When&nbsp;something&nbsp;heats&nbsp;up&nbsp;a&nbsp;solid&nbsp;the&nbsp;atoms&nbsp;bounce&nbsp;against&nbsp;each&nbsp;other&nbsp;and&nbsp;heat&nbsp;each&nbsp;other&nbsp;up.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>If&nbsp;you&nbsp;heat&nbsp;something&nbsp;up&nbsp;at&nbsp;one&nbsp;end&nbsp;then&nbsp;it&nbsp;will&nbsp;slowly&nbsp;heat&nbsp;up&nbsp;further&nbsp;down&nbsp;the&nbsp;object&nbsp;as&nbsp;the&nbsp;atoms&nbsp;begin&nbsp;bouncing&nbsp;against&nbsp;eachother&nbsp;faster.</span></span></span></div></pre><p><strong>Thermal transfer by free electrons</strong></p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Free&nbsp;electrons&nbsp;can&nbsp;add&nbsp;to&nbsp;the&nbsp;bouncing&nbsp;effect&nbsp;of&nbsp;the&nbsp;particles.&nbsp;In&nbsp;other&nbsp;words&nbsp;a&nbsp;heated&nbsp;substance&nbsp;with&nbsp;free&nbsp;electrons&nbsp;will&nbsp;heat&nbsp;faster&nbsp;than&nbsp;one&nbsp;without&nbsp;because</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>the&nbsp;atoms&nbsp;are&nbsp;bouncing&nbsp;off&nbsp;both&nbsp;each&nbsp;other&nbsp;and&nbsp;off&nbsp;of&nbsp;the&nbsp;free&nbsp;electrons.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Metals&nbsp;are&nbsp;good&nbsp;conductors&nbsp;because&nbsp;they&nbsp;have&nbsp;lots&nbsp;of&nbsp;free&nbsp;electrons.</span></span></span></div></pre><p><strong>Thermal conductivity</strong></p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Thermal&nbsp;conductivity&nbsp;describes&nbsp;a&nbsp;materials&nbsp;ability&nbsp;to&nbsp;conduct&nbsp;heat.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>It&nbsp;is&nbsp;measured&nbsp;in&nbsp;watts&nbsp;per&nbsp;meter&nbsp;Kelvin.&nbsp;(W/m/K)</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Like&nbsp;Latent&nbsp;heat,&nbsp;thermal&nbsp;conductivity&nbsp;is&nbsp;a&nbsp;constant&nbsp;determined&nbsp;by&nbsp;the&nbsp;type&nbsp;of&nbsp;material.</span></span></span></div></pre><p><img src="C:\Users\Patchy\Google Drive\School work\2017\Physics\Thermal conductivity table.PNG" alt="alt"></p>
+<p><strong>Conduction relationship</strong></p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Change&nbsp;in&nbsp;energy&nbsp;/&nbsp;time&nbsp;=&nbsp;the&nbsp;materials&nbsp;thermal&nbsp;conductivity&nbsp;(W/m/k)&nbsp;*&nbsp;the&nbsp;surface&nbsp;area&nbsp;(m^2)&nbsp;*&nbsp;Change&nbsp;in&nbsp;temperature&nbsp;/&nbsp;Thickness&nbsp;of&nbsp;the&nbsp;material&nbsp;(m)</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Q/t&nbsp;=&nbsp;KAΔT/L</span></span></span></div></pre><p><strong>Table of conductivity of materials</strong></p>
+<table>
+<thead>
+<tr>
+<th>Material</th>
+<th>Conductivity (W/mK)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>silver</td>
+<td>420</td>
+</tr>
+<tr>
+<td>copper</td>
+<td>380</td>
+</tr>
+<tr>
+<td>aluminium</td>
+<td>240</td>
+</tr>
+<tr>
+<td>steel</td>
+<td>60</td>
+</tr>
+<tr>
+<td>ice</td>
+<td>2.2</td>
+</tr>
+<tr>
+<td>brick, glass</td>
+<td>1</td>
+</tr>
+<tr>
+<td>concrete</td>
+<td>1</td>
+</tr>
+<tr>
+<td>water</td>
+<td>0.6</td>
+</tr>
+<tr>
+<td>human tissue</td>
+<td>0.2</td>
+</tr>
+<tr>
+<td>wood</td>
+<td>0.15</td>
+</tr>
+<tr>
+<td>polystyrene</td>
+<td>0.08</td>
+</tr>
+<tr>
+<td>paper</td>
+<td>0.06</td>
+</tr>
+<tr>
+<td>fibreglass</td>
+<td>0.04</td>
+</tr>
+<tr>
+<td>air</td>
+<td>0.025</td>
+</tr>
+</tbody>
+</table>
+<p><strong>convection</strong></p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>convection&nbsp;is&nbsp;the&nbsp;transfer&nbsp;of&nbsp;thermal&nbsp;energy&nbsp;within&nbsp;a&nbsp;fluid&nbsp;(liquid&nbsp;or&nbsp;gas)&nbsp;by&nbsp;the&nbsp;movement&nbsp;of&nbsp;hot&nbsp;areas&nbsp;from&nbsp;one&nbsp;place&nbsp;to&nbsp;another.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Heating&nbsp;by&nbsp;convection:</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>Unlike&nbsp;other&nbsp;forms&nbsp;of&nbsp;energy&nbsp;transfer,&nbsp;convection&nbsp;involves&nbsp;the&nbsp;movement&nbsp;of&nbsp;lots&nbsp;of&nbsp;particles&nbsp;of&nbsp;a&nbsp;temperature&nbsp;over&nbsp;a&nbsp;relatively&nbsp;large&nbsp;distance.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;Colder&nbsp;particles&nbsp;are&nbsp;more&nbsp;dense/heavy&nbsp;and&nbsp;tend&nbsp;to&nbsp;fall&nbsp;in&nbsp;a&nbsp;solution.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;Hotter&nbsp;particles&nbsp;are&nbsp;less&nbsp;dense/heavy&nbsp;and&nbsp;tend&nbsp;to&nbsp;rise&nbsp;in&nbsp;a&nbsp;solution.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;Convection&nbsp;currents&nbsp;are&nbsp;formed&nbsp;When&nbsp;hot&nbsp;fluids&nbsp;rise&nbsp;and&nbsp;cold&nbsp;fluids&nbsp;drop&nbsp;in&nbsp;near&nbsp;proximity.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;This&nbsp;causes&nbsp;a&nbsp;current&nbsp;because&nbsp;the&nbsp;hot&nbsp;fluid&nbsp;moving&nbsp;up&nbsp;cools&nbsp;down&nbsp;and&nbsp;drops.</span></span></span></div></pre><p>[<img src="https://thattheoreticalphysicist.files.wordpress.com/2014/09/f08_16.jpg" alt="Foo">]</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>There&nbsp;are&nbsp;two&nbsp;main&nbsp;causes&nbsp;of&nbsp;convection:</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--bullet-point syntax--star syntax--text"><span>&nbsp;&nbsp;</span><span class="syntax--punctuation syntax--definition syntax--item syntax--text"><span>*</span></span><span>&nbsp;Forced&nbsp;convection,&nbsp;for&nbsp;example&nbsp;ducted&nbsp;heating&nbsp;in&nbsp;air&nbsp;which&nbsp;is&nbsp;heated&nbsp;and&nbsp;then&nbsp;blown&nbsp;into&nbsp;a&nbsp;room</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--bullet-point syntax--star syntax--text"><span>&nbsp;&nbsp;</span><span class="syntax--punctuation syntax--definition syntax--item syntax--text"><span>*</span></span><span>&nbsp;natural&nbsp;convection,&nbsp;such&nbsp;as&nbsp;a&nbsp;fluid&nbsp;rising&nbsp;as&nbsp;it&nbsp;is&nbsp;heated.</span></span></span></div></pre><hr>
+<h2 id="lesson-10">Lesson 10</h2>
+<h3 id="-discussion-of-coffee-cup-prac-"><strong>Discussion of Coffee cup prac</strong></h3>
+<p><a href="https://docs.google.com/document/d/1c8DMlwX6r-tlvu7nBZHKLDpcVIc-RgKoQ77n-ZOl46Q/edit">link to prac</a></p>
+<p><a href="https://docs.google.com/presentation/d/1Hv2MHvUix3wsYc0eW-ujNydZ2DgyapGkx2-nQdaTlD4/edit">link to results</a></p>
+<p><strong>Rate of energy change</strong></p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Change&nbsp;of&nbsp;energy&nbsp;(Q)&nbsp;over&nbsp;time&nbsp;(t)&nbsp;is&nbsp;proportional&nbsp;to&nbsp;change&nbsp;in&nbsp;temperature&nbsp;(ΔT)</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Q/t&nbsp;∝&nbsp;ΔT</span></span></span></div></pre><p><strong>Calibration of thermometers</strong></p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>When&nbsp;we&nbsp;calibrate&nbsp;a&nbsp;thermometer&nbsp;we&nbsp;are&nbsp;identifying&nbsp;any&nbsp;systematic&nbsp;error&nbsp;in&nbsp;the&nbsp;equipment.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>When&nbsp;you&nbsp;calibrate&nbsp;the&nbsp;thermometer&nbsp;you&nbsp;know&nbsp;there&nbsp;is&nbsp;an&nbsp;error&nbsp;and&nbsp;you&nbsp;are&nbsp;identifying&nbsp;the&nbsp;offset.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>If&nbsp;you&nbsp;calibrate&nbsp;the&nbsp;thermometer&nbsp;with&nbsp;a&nbsp;known&nbsp;value&nbsp;(say&nbsp;0&nbsp;degrees)&nbsp;and&nbsp;the&nbsp;calculator&nbsp;shows&nbsp;3,&nbsp;then&nbsp;you&nbsp;have&nbsp;an&nbsp;offset&nbsp;temperature</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>of&nbsp;3&nbsp;degrees.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>You&nbsp;must&nbsp;state&nbsp;the&nbsp;calibration&nbsp;errors&nbsp;in&nbsp;the&nbsp;report.</span></span></span></div></pre><p><strong>If you have data with different starting points</strong></p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>You&nbsp;have&nbsp;to&nbsp;start&nbsp;each&nbsp;line&nbsp;on&nbsp;the&nbsp;graph&nbsp;at&nbsp;the&nbsp;same&nbsp;x&nbsp;value.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>To&nbsp;do&nbsp;this,&nbsp;pick&nbsp;the&nbsp;first&nbsp;point&nbsp;that&nbsp;every&nbsp;line&nbsp;has&nbsp;and&nbsp;shift&nbsp;all&nbsp;of&nbsp;the&nbsp;data&nbsp;to&nbsp;fit.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>This&nbsp;is&nbsp;good&nbsp;for&nbsp;viewing&nbsp;differences&nbsp;in&nbsp;data.</span></span></span></div></pre><p><strong>Control variables</strong></p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--bullet-point syntax--star syntax--text"><span>&nbsp;&nbsp;</span><span class="syntax--punctuation syntax--definition syntax--item syntax--text"><span>*</span></span><span>&nbsp;Mass&nbsp;of&nbsp;water</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--bullet-point syntax--star syntax--text"><span>&nbsp;&nbsp;</span><span class="syntax--punctuation syntax--definition syntax--item syntax--text"><span>*</span></span><span>&nbsp;Starting&nbsp;temperature</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--bullet-point syntax--star syntax--text"><span>&nbsp;&nbsp;</span><span class="syntax--punctuation syntax--definition syntax--item syntax--text"><span>*</span></span><span>&nbsp;Size&nbsp;/&nbsp;shape&nbsp;of&nbsp;container</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--bullet-point syntax--star syntax--text"><span>&nbsp;&nbsp;</span><span class="syntax--punctuation syntax--definition syntax--item syntax--text"><span>*</span></span><span>&nbsp;Calibration&nbsp;of&nbsp;equipment</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--bullet-point syntax--star syntax--text"><span>&nbsp;&nbsp;</span><span class="syntax--punctuation syntax--definition syntax--item syntax--text"><span>*</span></span><span>&nbsp;External&nbsp;temperature</span></span></span></div></pre><p><strong>What variables do you want?</strong></p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>You&nbsp;do&nbsp;not&nbsp;want&nbsp;too&nbsp;many&nbsp;variables.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Be&nbsp;careful&nbsp;to&nbsp;only&nbsp;make&nbsp;one&nbsp;change&nbsp;at&nbsp;a&nbsp;time&nbsp;to&nbsp;your&nbsp;variable.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>When&nbsp;displaying&nbsp;data&nbsp;you&nbsp;want&nbsp;to&nbsp;split&nbsp;your&nbsp;variables&nbsp;up&nbsp;to&nbsp;make&nbsp;it&nbsp;easy&nbsp;to&nbsp;see.</span></span></span></div></pre><p><strong>uncertainty and error</strong></p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>In&nbsp;chemistry&nbsp;you&nbsp;use&nbsp;error&nbsp;in&nbsp;physics&nbsp;you&nbsp;use&nbsp;uncertainty.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>In&nbsp;physics&nbsp;you&nbsp;need&nbsp;to&nbsp;use&nbsp;error&nbsp;bars&nbsp;to&nbsp;quantify&nbsp;uncertainty.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>When&nbsp;calculating&nbsp;error&nbsp;you&nbsp;could&nbsp;have&nbsp;an&nbsp;offset&nbsp;error&nbsp;if&nbsp;you&nbsp;calibrate&nbsp;your&nbsp;equipment&nbsp;for&nbsp;example.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>In&nbsp;physics&nbsp;we&nbsp;do&nbsp;not&nbsp;have&nbsp;human&nbsp;error.&nbsp;Its&nbsp;either&nbsp;random,&nbsp;systematic,&nbsp;other...&nbsp;Or&nbsp;a&nbsp;mistake.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Mistakes:</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>If&nbsp;you&nbsp;recognize&nbsp;that&nbsp;you&nbsp;did&nbsp;something&nbsp;wrong,&nbsp;mark&nbsp;it&nbsp;down&nbsp;as&nbsp;a&nbsp;mistake&nbsp;and&nbsp;then</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;try&nbsp;again.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Examples&nbsp;of&nbsp;systematic&nbsp;errors:</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>An&nbsp;offset&nbsp;error&nbsp;from&nbsp;the&nbsp;calibration,</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;the&nbsp;degree&nbsp;of&nbsp;precision&nbsp;of&nbsp;a&nbsp;measurement&nbsp;tool&nbsp;(how&nbsp;closely&nbsp;you&nbsp;can&nbsp;measure&nbsp;something).</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>You&nbsp;can&nbsp;quantify&nbsp;systematic&nbsp;errors&nbsp;if&nbsp;you&nbsp;know&nbsp;the&nbsp;uncertainty.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;For&nbsp;example:</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>The&nbsp;Pasco&nbsp;measurement&nbsp;probes&nbsp;are&nbsp;+-&nbsp;0.5&nbsp;degrees.&nbsp;because&nbsp;they&nbsp;are&nbsp;not&nbsp;completely&nbsp;accurate.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;means&nbsp;we&nbsp;have&nbsp;an&nbsp;uncertainty&nbsp;of&nbsp;0.5,</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;&nbsp;&nbsp;this&nbsp;means&nbsp;our&nbsp;error&nbsp;bars&nbsp;should&nbsp;be&nbsp;0.5&nbsp;long.</span></span></span></div></pre><p><img src="http://www.excel-easy.com/examples/images/error-bars/error-bars.png" alt="alt"></p>
+<p><strong>Percentage uncertainty</strong></p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Percentage&nbsp;uncertainty&nbsp;=&nbsp;uncertainty&nbsp;/&nbsp;data&nbsp;point.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Example&nbsp;(using&nbsp;graph):</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>uncertainty&nbsp;=&nbsp;+-&nbsp;10</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>for&nbsp;x&nbsp;=&nbsp;1:</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>%uncertainty&nbsp;=&nbsp;10&nbsp;/&nbsp;20</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;&nbsp;&nbsp;%uncertainty&nbsp;=&nbsp;0.5&nbsp;=&nbsp;50%</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>for&nbsp;x&nbsp;&nbsp;=&nbsp;6:</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>%uncertainty&nbsp;=&nbsp;10&nbsp;/&nbsp;80</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;&nbsp;&nbsp;%uncertainty&nbsp;=&nbsp;0.125&nbsp;=&nbsp;12.5%</span></span></span></div></pre><hr>
+<h2 id="lesson-13">Lesson 13</h2>
+<p><strong>waves</strong></p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--bullet-point syntax--star syntax--text"><span class="syntax--punctuation syntax--definition syntax--item syntax--text"><span>*</span></span><span>&nbsp;The&nbsp;crest&nbsp;of&nbsp;a&nbsp;wave&nbsp;is&nbsp;the&nbsp;point&nbsp;on&nbsp;the&nbsp;medium&nbsp;that&nbsp;exhibits&nbsp;the&nbsp;maximum&nbsp;amount&nbsp;of&nbsp;positive&nbsp;or&nbsp;upward&nbsp;displacement&nbsp;from&nbsp;the&nbsp;rest&nbsp;position.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--bullet-point syntax--star syntax--text"><span class="syntax--punctuation syntax--definition syntax--item syntax--text"><span>*</span></span><span>&nbsp;The&nbsp;trough&nbsp;of&nbsp;a&nbsp;wave&nbsp;is&nbsp;the&nbsp;point&nbsp;on&nbsp;the&nbsp;medium&nbsp;that&nbsp;exhibits&nbsp;the&nbsp;maximum&nbsp;amount&nbsp;of&nbsp;negative&nbsp;or&nbsp;downward&nbsp;displacement&nbsp;from&nbsp;the&nbsp;rest&nbsp;position.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--bullet-point syntax--star syntax--text"><span class="syntax--punctuation syntax--definition syntax--item syntax--text"><span>*</span></span><span>&nbsp;The&nbsp;amplitude&nbsp;of&nbsp;a&nbsp;wave&nbsp;refers&nbsp;to&nbsp;the&nbsp;maximum&nbsp;amount&nbsp;of&nbsp;displacement&nbsp;of&nbsp;a&nbsp;particle&nbsp;on&nbsp;the&nbsp;medium&nbsp;from&nbsp;its&nbsp;rest&nbsp;position</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--bullet-point syntax--star syntax--text"><span class="syntax--punctuation syntax--definition syntax--item syntax--text"><span>*</span></span><span>&nbsp;The&nbsp;wavelength&nbsp;of&nbsp;a&nbsp;wave&nbsp;is&nbsp;simply&nbsp;the&nbsp;length&nbsp;of&nbsp;one&nbsp;complete&nbsp;wave&nbsp;cycle</span></span></span></div></pre><p><strong>Types of waves</strong></p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--bullet-point syntax--star syntax--text"><span class="syntax--punctuation syntax--definition syntax--item syntax--text"><span>*</span></span><span>A&nbsp;transverse&nbsp;wave&nbsp;is&nbsp;a&nbsp;wave&nbsp;in&nbsp;which&nbsp;the&nbsp;particles&nbsp;of&nbsp;the&nbsp;medium&nbsp;are&nbsp;displaced&nbsp;in&nbsp;a&nbsp;direction&nbsp;perpendicular&nbsp;to&nbsp;the&nbsp;direction&nbsp;of&nbsp;energy&nbsp;transport.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--bullet-point syntax--star syntax--text"><span class="syntax--punctuation syntax--definition syntax--item syntax--text"><span>*</span></span><span>&nbsp;A&nbsp;longitudinal&nbsp;wave&nbsp;is&nbsp;a&nbsp;wave&nbsp;in&nbsp;which&nbsp;particles&nbsp;of&nbsp;the&nbsp;medium&nbsp;move&nbsp;in&nbsp;a&nbsp;direction&nbsp;parallel&nbsp;to&nbsp;the&nbsp;direction&nbsp;that&nbsp;the&nbsp;wave&nbsp;moves.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--bullet-point syntax--star syntax--text"><span class="syntax--punctuation syntax--definition syntax--item syntax--text"><span>*</span></span><span>&nbsp;An&nbsp;electromagnetic&nbsp;wave&nbsp;is&nbsp;a&nbsp;wave&nbsp;that&nbsp;is&nbsp;capable&nbsp;of&nbsp;transmitting&nbsp;its&nbsp;energy&nbsp;through&nbsp;a&nbsp;vacuum&nbsp;(i.e.,&nbsp;empty&nbsp;space).&nbsp;Electromagnetic&nbsp;waves&nbsp;are&nbsp;produced&nbsp;by&nbsp;the&nbsp;vibration&nbsp;of&nbsp;charged&nbsp;particles.</span></span></span></div></pre><p><img src="https://i.stack.imgur.com/7rxLg.jpg" alt="link"></p>
+<p><strong>The Electromagnetic Spectrum</strong></p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>The&nbsp;EM&nbsp;spectrum&nbsp;is&nbsp;the&nbsp;ENTIRE&nbsp;range&nbsp;of&nbsp;EM&nbsp;waves&nbsp;in&nbsp;order&nbsp;of&nbsp;increasing&nbsp;frequency&nbsp;and&nbsp;decreasing&nbsp;wavelength.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>So&nbsp;as&nbsp;the&nbsp;frequency&nbsp;of&nbsp;the&nbsp;wave&nbsp;increases&nbsp;the&nbsp;wavelength&nbsp;of&nbsp;the&nbsp;wave&nbsp;decreases.</span></span></span></div></pre><p><img src="https://imagine.gsfc.nasa.gov/Images/science/EM_spectrum_compare_level1_lg.jpg" alt="link"></p>
+<p><strong>Electromagnetic waves</strong></p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Electromagnetic&nbsp;waves&nbsp;are&nbsp;formed&nbsp;by&nbsp;the&nbsp;vibrations&nbsp;of&nbsp;electric&nbsp;and&nbsp;magnetic&nbsp;fields.&nbsp;These&nbsp;fields&nbsp;are&nbsp;perpendicular&nbsp;to&nbsp;one&nbsp;another&nbsp;in&nbsp;the&nbsp;direction&nbsp;the&nbsp;wave&nbsp;is&nbsp;traveling.&nbsp;Once&nbsp;formed,&nbsp;this&nbsp;energy&nbsp;travels&nbsp;at&nbsp;the&nbsp;speed&nbsp;of&nbsp;light&nbsp;until&nbsp;further&nbsp;interaction&nbsp;with&nbsp;matter.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>The&nbsp;higher&nbsp;the&nbsp;frequency&nbsp;of&nbsp;an&nbsp;Electromagnetic&nbsp;wave,&nbsp;the&nbsp;more&nbsp;energy&nbsp;the&nbsp;wave&nbsp;has.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>E&nbsp;=&nbsp;hf;</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>EM&nbsp;waves&nbsp;do&nbsp;not&nbsp;need&nbsp;a&nbsp;medium&nbsp;to&nbsp;travel&nbsp;through.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>waves&nbsp;are&nbsp;transverse&nbsp;waves,&nbsp;made&nbsp;of&nbsp;vibrating&nbsp;electric&nbsp;and&nbsp;magnetic&nbsp;fields&nbsp;at&nbsp;right&nbsp;angles&nbsp;to&nbsp;each&nbsp;other,&nbsp;and&nbsp;to&nbsp;the&nbsp;direction&nbsp;the&nbsp;waves&nbsp;are&nbsp;traveling.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Inverse&nbsp;relationship&nbsp;between&nbsp;wave&nbsp;size&nbsp;and&nbsp;frequency:</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>as&nbsp;wavelengths&nbsp;get&nbsp;smaller&nbsp;→&nbsp;frequencies&nbsp;get&nbsp;higher.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>λ:&nbsp;wavelength&nbsp;in&nbsp;meters</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>V:&nbsp;wave&nbsp;speed&nbsp;in&nbsp;m/s</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>f:&nbsp;frequency&nbsp;in&nbsp;hertz</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>λ&nbsp;=&nbsp;V/f</span></span></span></div></pre><p><img src="http://hyperphysics.phy-astr.gsu.edu/hbase/electric/imgel2/emwavec.gif" alt="link"></p>
+<p><strong>Stefans Law</strong></p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>The&nbsp;thermal&nbsp;energy&nbsp;radiated&nbsp;by&nbsp;a&nbsp;blackbody&nbsp;radiator&nbsp;per&nbsp;second&nbsp;per&nbsp;unit&nbsp;area&nbsp;is&nbsp;proportional&nbsp;to&nbsp;the&nbsp;fourth&nbsp;power&nbsp;of&nbsp;the&nbsp;absolute&nbsp;temperature</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Power&nbsp;=&nbsp;emissivity&nbsp;*&nbsp;(σ&nbsp;=&nbsp;5.6703*10&nbsp;^&nbsp;-8)&nbsp;*&nbsp;Area&nbsp;(m^2)&nbsp;*&nbsp;Temperature(k)</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>P&nbsp;=&nbsp;ƐσAT^4</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Change&nbsp;in&nbsp;power&nbsp;=&nbsp;emissivity&nbsp;*&nbsp;(σ&nbsp;=&nbsp;5.6703*10&nbsp;^&nbsp;-8)&nbsp;*&nbsp;Area&nbsp;(m^2)&nbsp;*&nbsp;(Temperature&nbsp;end&nbsp;^4&nbsp;-&nbsp;temperature&nbsp;initial&nbsp;^4)</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>ΔP&nbsp;=&nbsp;Ɛσ(Te^4-Ti^4)</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>P&nbsp;is&nbsp;the&nbsp;power&nbsp;in&nbsp;Watts</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>A&nbsp;is&nbsp;the&nbsp;surface&nbsp;area&nbsp;of&nbsp;the&nbsp;object&nbsp;&nbsp;(m2)</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Ɛ&nbsp;is&nbsp;the&nbsp;emissivity&nbsp;of&nbsp;a&nbsp;surface</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>𝜎&nbsp;is&nbsp;a&nbsp;universal&nbsp;constant&nbsp;called&nbsp;the&nbsp;Stefan-Boltzmann&nbsp;constant&nbsp;=&nbsp;5.67x10-8&nbsp;Wm-2K-4</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Example:</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>Temperature&nbsp;Hot:&nbsp;373;</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;Temperature&nbsp;Cold:&nbsp;273;</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>Area&nbsp;of&nbsp;a&nbsp;cylinder&nbsp;=&nbsp;2πr^2&nbsp;+&nbsp;2πrL</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>=&nbsp;2π*(2*10^-3)&nbsp;+&nbsp;2π(2*10^-3)*0.1</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;8π&nbsp;*&nbsp;10^-6&nbsp;+&nbsp;4π&nbsp;*&nbsp;10^-4</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;1.3&nbsp;*&nbsp;10^-3&nbsp;m^2</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>Change&nbsp;in&nbsp;Power&nbsp;=&nbsp;Ɛσ(Te^4-Ti^4)</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>=&nbsp;1*5.67*10^-8&nbsp;*&nbsp;1.3*10^-3(373^4-273^4)</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;1.02&nbsp;W&nbsp;=&nbsp;1.02&nbsp;J/s</span></span></span></div></pre><p><img src="http://hyperphysics.phy-astr.gsu.edu/hbase/thermo/imgheat/stef1.png" alt="link"></p>
+<p><strong>Wein&#39;s Law</strong></p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Wien&#39;s&nbsp;displacement&nbsp;law&nbsp;states&nbsp;that&nbsp;the&nbsp;black&nbsp;body&nbsp;radiation&nbsp;curve&nbsp;for&nbsp;different&nbsp;temperatures&nbsp;peaks&nbsp;at&nbsp;a&nbsp;wavelength&nbsp;inversely&nbsp;proportional&nbsp;to&nbsp;the&nbsp;temperature;</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>So&nbsp;cool&nbsp;objects&nbsp;will&nbsp;emit&nbsp;radiation&nbsp;at&nbsp;long&nbsp;wavelengths&nbsp;with&nbsp;lower&nbsp;energy,&nbsp;i.e.&nbsp;infrared.&nbsp;infrared&nbsp;is&nbsp;invisible&nbsp;to&nbsp;humans&nbsp;so&nbsp;we&nbsp;don&#39;t&nbsp;see&nbsp;it.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Hotter&nbsp;objects&nbsp;emit&nbsp;radiation&nbsp;with&nbsp;a&nbsp;higher&nbsp;frequency&nbsp;and&nbsp;you&nbsp;can&nbsp;see&nbsp;it&nbsp;glow&nbsp;red.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>At&nbsp;even&nbsp;higher&nbsp;temperatures&nbsp;the&nbsp;objects&nbsp;will&nbsp;glow&nbsp;white&nbsp;because&nbsp;it&nbsp;is&nbsp;emitting&nbsp;in&nbsp;all&nbsp;the&nbsp;wavelengths&nbsp;of&nbsp;the&nbsp;visible&nbsp;spectrum.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>T&nbsp;=&nbsp;2.9&nbsp;*&nbsp;10^-3&nbsp;/&nbsp;λ</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>λ&nbsp;=&nbsp;2.9&nbsp;*&nbsp;10^-3&nbsp;/&nbsp;T</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>λ:&nbsp;peak&nbsp;wavelength&nbsp;of&nbsp;the&nbsp;emitted&nbsp;radiation&nbsp;in&nbsp;meters</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>T:&nbsp;surface&nbsp;temperature&nbsp;of&nbsp;the&nbsp;object&nbsp;in&nbsp;kelvin</span></span></span></div></pre><p><img src="http://web.pdx.edu/~emch/rs/wiendisp.gif" alt="link">
+<img src="https://ibeconsphysics.files.wordpress.com/2012/12/t-in-terms-of-l.png?w=628" alt="link"></p>
+<p><strong>Black body</strong></p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Wein&#39;s&nbsp;theory&nbsp;was&nbsp;based&nbsp;on&nbsp;the&nbsp;idea&nbsp;of&nbsp;a&nbsp;theoretical&nbsp;object&nbsp;called&nbsp;a&nbsp;black&nbsp;body.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>A&nbsp;black&nbsp;body&nbsp;does&nbsp;not&nbsp;have&nbsp;to&nbsp;be&nbsp;black.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>A&nbsp;black&nbsp;body&nbsp;theoretically&nbsp;would&nbsp;absorb&nbsp;all&nbsp;rays&nbsp;of&nbsp;electromagnetic&nbsp;radiation&nbsp;regardless&nbsp;of&nbsp;the&nbsp;wavelength.x</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>A&nbsp;black&nbsp;body&nbsp;is&nbsp;a&nbsp;perfect&nbsp;emitter,&nbsp;meaning&nbsp;it&nbsp;has&nbsp;an&nbsp;emissivity&nbsp;of&nbsp;1.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>A&nbsp;black&nbsp;body&nbsp;has&nbsp;no&nbsp;reflecting&nbsp;energy,&nbsp;it&nbsp;absorbs&nbsp;and&nbsp;reflects&nbsp;all&nbsp;energy.</span></span></span></div></pre><p><strong>Lightbulb analogy</strong></p>
+<pre class="editor-colors lang-html"><div class="line"><span class="syntax--text syntax--html syntax--basic"><span>Look&nbsp;at&nbsp;light&nbsp;bulb&nbsp;with&nbsp;variables&nbsp;to&nbsp;control&nbsp;how&nbsp;much&nbsp;electrical&nbsp;power&nbsp;goes&nbsp;into&nbsp;it.</span></span></div><div class="line"><span class="syntax--text syntax--html syntax--basic"><span>If&nbsp;I&nbsp;put&nbsp;half&nbsp;as&nbsp;much&nbsp;electrical&nbsp;power&nbsp;into&nbsp;it,&nbsp;what&nbsp;will&nbsp;happen?</span></span></div><div class="line"><span class="syntax--text syntax--html syntax--basic"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--html syntax--basic"><span>a.&nbsp;color&nbsp;will&nbsp;change,&nbsp;get&nbsp;whiter,&nbsp;brightness&nbsp;decrease</span></span></div><div class="line"><span class="syntax--text syntax--html syntax--basic"><span>b.&nbsp;color&nbsp;will&nbsp;stay&nbsp;the&nbsp;same,&nbsp;brightness&nbsp;decrease</span></span></div><div class="line"><span class="syntax--text syntax--html syntax--basic"><span>c.&nbsp;color&nbsp;will&nbsp;get&nbsp;redder,&nbsp;brightness&nbsp;decrease&nbsp;</span><span class="syntax--meta syntax--tag syntax--other syntax--html"><span class="syntax--punctuation syntax--definition syntax--tag syntax--begin syntax--html"><span>&lt;</span></span><span class="syntax--entity syntax--name syntax--tag syntax--other syntax--html"><span>--</span></span><span>&nbsp;</span><span class="syntax--entity syntax--other syntax--attribute-name syntax--html"><span>As</span></span><span>&nbsp;</span><span class="syntax--entity syntax--other syntax--attribute-name syntax--html"><span>you</span></span><span>&nbsp;</span><span class="syntax--entity syntax--other syntax--attribute-name syntax--html"><span>decrease</span></span><span>&nbsp;</span><span class="syntax--entity syntax--other syntax--attribute-name syntax--html"><span>the</span></span><span>&nbsp;</span><span class="syntax--entity syntax--other syntax--attribute-name syntax--html"><span>energy</span></span><span>&nbsp;</span><span class="syntax--entity syntax--other syntax--attribute-name syntax--html"><span>the</span></span><span>&nbsp;</span><span class="syntax--entity syntax--other syntax--attribute-name syntax--html"><span>lights</span></span><span>&nbsp;</span><span class="syntax--entity syntax--other syntax--attribute-name syntax--html"><span>peak</span></span><span>&nbsp;</span><span class="syntax--entity syntax--other syntax--attribute-name syntax--html"><span>wavelength</span></span><span>&nbsp;</span><span class="syntax--entity syntax--other syntax--attribute-name syntax--html"><span>and</span></span><span>&nbsp;</span><span class="syntax--entity syntax--other syntax--attribute-name syntax--html"><span>intensity</span></span><span>&nbsp;</span><span class="syntax--entity syntax--other syntax--attribute-name syntax--html"><span>decreases</span></span><span>.&nbsp;</span><span class="syntax--entity syntax--other syntax--attribute-name syntax--html"><span>The</span></span><span>&nbsp;</span><span class="syntax--entity syntax--other syntax--attribute-name syntax--html"><span>peak</span></span><span>&nbsp;</span><span class="syntax--entity syntax--other syntax--attribute-name syntax--html"><span>of</span></span><span>&nbsp;</span><span class="syntax--entity syntax--other syntax--attribute-name syntax--html"><span>the</span></span><span>&nbsp;</span><span class="syntax--entity syntax--other syntax--attribute-name syntax--html"><span>wavelength</span></span><span>&nbsp;</span><span class="syntax--entity syntax--other syntax--attribute-name syntax--html"><span>goes</span></span><span>&nbsp;</span><span class="syntax--entity syntax--other syntax--attribute-name syntax--html"><span>from</span></span><span>&nbsp;</span><span class="syntax--entity syntax--other syntax--attribute-name syntax--html"><span>left</span></span><span>&nbsp;</span><span class="syntax--entity syntax--other syntax--attribute-name syntax--html"><span>to</span></span><span>&nbsp;</span><span class="syntax--entity syntax--other syntax--attribute-name syntax--html"><span>right</span></span><span>&nbsp;</span><span class="syntax--entity syntax--other syntax--attribute-name syntax--html"><span>as</span></span><span>&nbsp;</span><span class="syntax--entity syntax--other syntax--attribute-name syntax--html"><span>you</span></span><span>&nbsp;</span><span class="syntax--entity syntax--other syntax--attribute-name syntax--html"><span>decrease</span></span><span>&nbsp;</span><span class="syntax--entity syntax--other syntax--attribute-name syntax--html"><span>temperature</span></span><span>&nbsp;</span><span class="syntax--entity syntax--other syntax--attribute-name syntax--html"><span>so</span></span><span>&nbsp;</span><span class="syntax--entity syntax--other syntax--attribute-name syntax--html"><span>more</span></span><span>&nbsp;</span><span class="syntax--entity syntax--other syntax--attribute-name syntax--html"><span>of</span></span><span>&nbsp;</span><span class="syntax--entity syntax--other syntax--attribute-name syntax--html"><span>the</span></span><span>&nbsp;</span><span class="syntax--entity syntax--other syntax--attribute-name syntax--html"><span>bulbs</span></span><span>&nbsp;</span><span class="syntax--entity syntax--other syntax--attribute-name syntax--html"><span>wavelength</span></span><span>&nbsp;</span><span class="syntax--entity syntax--other syntax--attribute-name syntax--html"><span>will</span></span><span>&nbsp;</span><span class="syntax--entity syntax--other syntax--attribute-name syntax--html"><span>fall</span></span><span>&nbsp;</span><span class="syntax--entity syntax--other syntax--attribute-name syntax--html"><span>on</span></span><span>&nbsp;</span><span class="syntax--entity syntax--other syntax--attribute-name syntax--html"><span>the</span></span><span>&nbsp;</span><span class="syntax--entity syntax--other syntax--attribute-name syntax--html"><span>red</span></span><span>&nbsp;</span><span class="syntax--entity syntax--other syntax--attribute-name syntax--html"><span>part</span></span><span>&nbsp;</span><span class="syntax--entity syntax--other syntax--attribute-name syntax--html"><span>of</span></span><span>&nbsp;</span><span class="syntax--entity syntax--other syntax--attribute-name syntax--html"><span>the</span></span><span>&nbsp;</span><span class="syntax--entity syntax--other syntax--attribute-name syntax--html"><span>spectrum</span></span><span>.&nbsp;--</span><span class="syntax--punctuation syntax--definition syntax--tag syntax--end syntax--html"><span>&gt;</span></span></span></span></div><div class="line"><span class="syntax--text syntax--html syntax--basic"><span>d.&nbsp;color&nbsp;will&nbsp;get&nbsp;redder,&nbsp;brightness&nbsp;the&nbsp;same</span></span></div><div class="line"><span class="syntax--text syntax--html syntax--basic"><span>e.&nbsp;color&nbsp;will&nbsp;get&nbsp;whiter,&nbsp;brightness&nbsp;the&nbsp;same.</span></span></div></pre>
+<p><strong>Emitted and absorbed energy example question</strong></p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>The&nbsp;surface&nbsp;temperature&nbsp;of&nbsp;an&nbsp;object&nbsp;increases&nbsp;from&nbsp;500K&nbsp;to&nbsp;2000K.&nbsp;What&nbsp;effect&nbsp;does&nbsp;this&nbsp;have&nbsp;on&nbsp;the&nbsp;transmission&nbsp;of&nbsp;thermal&nbsp;energy&nbsp;from&nbsp;the&nbsp;object?</span></span></span></div></pre><table>
+<thead>
+<tr>
+<th style="text-align:left">Thinking</th>
+<th style="text-align:left">Working</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Find the factor by which the temperature has increased or decreased</td>
+<td style="text-align:left">T(multiple) = T(final)/T(initial)</td>
+</tr>
+<tr>
+<td style="text-align:left">Use P ∝ T^4</td>
+<td style="text-align:left">P ∝ T^4,  P ∝ 4^4,  P ∝ 256</td>
+</tr>
+<tr>
+<td style="text-align:left">The rate of transmission has increased by 256</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="lesson-14">Lesson 14</h2>
+<p><strong>Getting ready for sac</strong></p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Can&nbsp;bring:</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>log&nbsp;book;</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>Make&nbsp;sure&nbsp;log&nbsp;book&nbsp;is&nbsp;filled&nbsp;with&nbsp;all&nbsp;the&nbsp;shit&nbsp;I&nbsp;need&nbsp;to&nbsp;know.</span></span></span></div></pre><p><strong>Shit we learnt [stuff to put in log book]</strong></p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Temperature;</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--bullet-point syntax--star syntax--text"><span>&nbsp;&nbsp;</span><span class="syntax--punctuation syntax--definition syntax--item syntax--text"><span>*</span></span><span>&nbsp;Scales</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>-&gt;&nbsp;Kelvin(K)</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;&nbsp;&nbsp;-&gt;&nbsp;Celsius(C)</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--bullet-point syntax--star syntax--text"><span>&nbsp;&nbsp;</span><span class="syntax--punctuation syntax--definition syntax--item syntax--text"><span>*</span></span><span>&nbsp;converting&nbsp;between&nbsp;scales</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>-&gt;&nbsp;T(K)&nbsp;=&nbsp;T(C)&nbsp;+&nbsp;273</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;&nbsp;&nbsp;-&gt;&nbsp;T(C)&nbsp;=&nbsp;T(K)&nbsp;-&nbsp;273</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Calibration;</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--bullet-point syntax--star syntax--text"><span>&nbsp;&nbsp;</span><span class="syntax--punctuation syntax--definition syntax--item syntax--text"><span>*</span></span><span>&nbsp;thermometers&nbsp;/&nbsp;thermocouple&nbsp;/&nbsp;temp&nbsp;probe&nbsp;:&nbsp;Calibration&nbsp;=&nbsp;ΔT</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Uncertainty;</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--bullet-point syntax--star syntax--text"><span>&nbsp;&nbsp;</span><span class="syntax--punctuation syntax--definition syntax--item syntax--text"><span>*</span></span><span>&nbsp;Uncertainty&nbsp;in&nbsp;any&nbsp;measuring&nbsp;device&nbsp;is&nbsp;estimated&nbsp;as&nbsp;half&nbsp;of&nbsp;the&nbsp;smallest&nbsp;division</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Zeroth&nbsp;law;</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--bullet-point syntax--star syntax--text"><span>&nbsp;&nbsp;</span><span class="syntax--punctuation syntax--definition syntax--item syntax--text"><span>*</span></span><span>&nbsp;The&nbsp;zeroth&nbsp;law&nbsp;of&nbsp;thermodynamics&nbsp;states&nbsp;that&nbsp;if&nbsp;two&nbsp;thermodynamic&nbsp;systems&nbsp;are&nbsp;each&nbsp;in&nbsp;thermal&nbsp;equilibrium&nbsp;with&nbsp;a&nbsp;third,&nbsp;then&nbsp;they&nbsp;are&nbsp;in&nbsp;thermal&nbsp;equilibrium&nbsp;with&nbsp;each&nbsp;other.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--bullet-point syntax--star syntax--text"><span>&nbsp;&nbsp;</span><span class="syntax--punctuation syntax--definition syntax--item syntax--text"><span>*</span></span><span>&nbsp;So&nbsp;if&nbsp;you&nbsp;have&nbsp;three&nbsp;beakers&nbsp;(labeled;&nbsp;a,b&nbsp;and&nbsp;c)&nbsp;of&nbsp;varying&nbsp;water&nbsp;and&nbsp;put&nbsp;them&nbsp;next&nbsp;to&nbsp;each&nbsp;other;&nbsp;if&nbsp;a&nbsp;and&nbsp;b&nbsp;are&nbsp;in&nbsp;thermal&nbsp;equilibrium&nbsp;then&nbsp;c&nbsp;must&nbsp;also&nbsp;be&nbsp;in&nbsp;thermal&nbsp;equilibrium</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>First&nbsp;law;</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--bullet-point syntax--star syntax--text"><span>&nbsp;&nbsp;</span><span class="syntax--punctuation syntax--definition syntax--item syntax--text"><span>*</span></span><span>&nbsp;Law</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>-&gt;&nbsp;If&nbsp;work&nbsp;is&nbsp;done&nbsp;on&nbsp;a&nbsp;system,&nbsp;the&nbsp;system&nbsp;gains&nbsp;energy</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;&nbsp;&nbsp;-&gt;&nbsp;If&nbsp;work&nbsp;is&nbsp;done&nbsp;by&nbsp;a&nbsp;system,&nbsp;the&nbsp;system&nbsp;loses&nbsp;energy</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--bullet-point syntax--star syntax--text"><span>&nbsp;&nbsp;</span><span class="syntax--punctuation syntax--definition syntax--item syntax--text"><span>*</span></span><span>&nbsp;ΔU&nbsp;=&nbsp;Q&nbsp;-&nbsp;W.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>-&gt;&nbsp;ΔU:&nbsp;Change&nbsp;in&nbsp;internal&nbsp;energy</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;&nbsp;&nbsp;-&gt;&nbsp;Q:&nbsp;Heat&nbsp;added&nbsp;to&nbsp;the&nbsp;system</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;&nbsp;&nbsp;-&gt;&nbsp;W:&nbsp;Work&nbsp;done&nbsp;by&nbsp;the&nbsp;system</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Kinetic&nbsp;molecular&nbsp;theory;</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--bullet-point syntax--star syntax--text"><span>&nbsp;&nbsp;</span><span class="syntax--punctuation syntax--definition syntax--item syntax--text"><span>*</span></span><span>&nbsp;Matter&nbsp;is&nbsp;composed&nbsp;of&nbsp;particles</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--bullet-point syntax--star syntax--text"><span>&nbsp;&nbsp;</span><span class="syntax--punctuation syntax--definition syntax--item syntax--text"><span>*</span></span><span>&nbsp;particles&nbsp;are&nbsp;in&nbsp;random&nbsp;constant&nbsp;motion;</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--bullet-point syntax--star syntax--text"><span>&nbsp;&nbsp;</span><span class="syntax--punctuation syntax--definition syntax--item syntax--text"><span>*</span></span><span>&nbsp;they&nbsp;interact&nbsp;with&nbsp;elastic&nbsp;collisions;</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--bullet-point syntax--star syntax--text"><span>&nbsp;&nbsp;</span><span class="syntax--punctuation syntax--definition syntax--item syntax--text"><span>*</span></span><span>&nbsp;There&nbsp;is&nbsp;a&nbsp;distribution&nbsp;of&nbsp;Kinetic&nbsp;Energy&nbsp;among&nbsp;the&nbsp;particles.&nbsp;[i.e.&nbsp;they&nbsp;don&#39;t&nbsp;all&nbsp;have&nbsp;the&nbsp;same&nbsp;kinetic&nbsp;energy]</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--bullet-point syntax--star syntax--text"><span>&nbsp;&nbsp;</span><span class="syntax--punctuation syntax--definition syntax--item syntax--text"><span>*</span></span><span>&nbsp;The&nbsp;temperature&nbsp;is&nbsp;the&nbsp;average&nbsp;kinetic&nbsp;energy&nbsp;of&nbsp;the&nbsp;particles.</span></span></span></div></pre><p><img src="http://wps.prenhall.com/wps/media/objects/3312/3391801/imag1404/AAAWEAT0.JPG" alt="alt"></p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Temperature;</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--bullet-point syntax--star syntax--text"><span>&nbsp;&nbsp;</span><span class="syntax--punctuation syntax--definition syntax--item syntax--text"><span>*</span></span><span>&nbsp;The&nbsp;average&nbsp;Kinetic&nbsp;energy&nbsp;of&nbsp;particles&nbsp;in&nbsp;a&nbsp;system</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Heat;</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--bullet-point syntax--star syntax--text"><span>&nbsp;&nbsp;</span><span class="syntax--punctuation syntax--definition syntax--item syntax--text"><span>*</span></span><span>&nbsp;The&nbsp;total&nbsp;energy&nbsp;of&nbsp;the&nbsp;system.&nbsp;We&nbsp;measure&nbsp;ΔHeat&nbsp;because&nbsp;we&nbsp;cannot&nbsp;easily&nbsp;measure&nbsp;heat,&nbsp;but&nbsp;we&nbsp;can&nbsp;easily&nbsp;measure&nbsp;ΔHeat</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>System;</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--bullet-point syntax--star syntax--text"><span>&nbsp;&nbsp;</span><span class="syntax--punctuation syntax--definition syntax--item syntax--text"><span>*</span></span><span>&nbsp;The&nbsp;system&nbsp;is&nbsp;the&nbsp;collection&nbsp;of&nbsp;particles&nbsp;that&nbsp;we&nbsp;are&nbsp;measuring.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Surroundings;</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--bullet-point syntax--star syntax--text"><span>&nbsp;&nbsp;</span><span class="syntax--punctuation syntax--definition syntax--item syntax--text"><span>*</span></span><span>&nbsp;The&nbsp;surroundings&nbsp;are&nbsp;everything&nbsp;that&nbsp;is&nbsp;not&nbsp;inside&nbsp;the&nbsp;system.&nbsp;We&nbsp;often&nbsp;measure&nbsp;the&nbsp;surrounds&nbsp;to&nbsp;calculate&nbsp;error.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Open&nbsp;system;</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--bullet-point syntax--star syntax--text"><span>&nbsp;&nbsp;&nbsp;</span><span class="syntax--punctuation syntax--definition syntax--item syntax--text"><span>*</span></span><span>&nbsp;In&nbsp;an&nbsp;open&nbsp;system&nbsp;it&nbsp;is&nbsp;possible&nbsp;that&nbsp;heat&nbsp;&amp;&nbsp;matter&nbsp;can&nbsp;escape&nbsp;the&nbsp;system&nbsp;and&nbsp;be&nbsp;dissipated&nbsp;into&nbsp;the&nbsp;surroundings.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Closed&nbsp;system;</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--bullet-point syntax--star syntax--text"><span>&nbsp;</span><span class="syntax--punctuation syntax--definition syntax--item syntax--text"><span>*</span></span><span>&nbsp;In&nbsp;a&nbsp;closed&nbsp;system&nbsp;no&nbsp;matter&nbsp;or&nbsp;heat(energy)&nbsp;is&nbsp;dissipated&nbsp;into&nbsp;the&nbsp;surroundings</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>Isolated&nbsp;system;</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--bullet-point syntax--star syntax--text"><span>&nbsp;&nbsp;</span><span class="syntax--punctuation syntax--definition syntax--item syntax--text"><span>*</span></span><span>&nbsp;In&nbsp;an&nbsp;isolated&nbsp;system&nbsp;no&nbsp;matter&nbsp;is&nbsp;transferred&nbsp;between&nbsp;the&nbsp;surroundings&nbsp;and&nbsp;the&nbsp;system&nbsp;but&nbsp;heat&nbsp;can.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Specific&nbsp;heat&nbsp;capacity;</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--bullet-point syntax--star syntax--text"><span>&nbsp;&nbsp;</span><span class="syntax--punctuation syntax--definition syntax--item syntax--text"><span>*</span></span><span>&nbsp;ΔQ&nbsp;=&nbsp;mCΔT</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>-&gt;&nbsp;Q:&nbsp;Energy&nbsp;transferred&nbsp;(J)</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;&nbsp;&nbsp;-&gt;&nbsp;m:&nbsp;mass&nbsp;(kg)</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;&nbsp;&nbsp;-&gt;&nbsp;c:&nbsp;specific&nbsp;heat&nbsp;capacity,&nbsp;the&nbsp;property&nbsp;of&nbsp;the&nbsp;metal&nbsp;(J/Kg/K).</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;&nbsp;&nbsp;-&gt;&nbsp;ΔT:&nbsp;Change&nbsp;in&nbsp;temperature&nbsp;(K)</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Latent&nbsp;heat&nbsp;of&nbsp;fusion;</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--bullet-point syntax--star syntax--text"><span>&nbsp;&nbsp;</span><span class="syntax--punctuation syntax--definition syntax--item syntax--text"><span>*</span></span><span>&nbsp;The&nbsp;latent&nbsp;heat&nbsp;of&nbsp;fusion&nbsp;is&nbsp;the&nbsp;energy&nbsp;required&nbsp;to&nbsp;change&nbsp;something&nbsp;from&nbsp;a&nbsp;solid&nbsp;to&nbsp;a&nbsp;liquid&nbsp;/&nbsp;liquid&nbsp;to&nbsp;a&nbsp;solid;</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--bullet-point syntax--star syntax--text"><span>&nbsp;&nbsp;</span><span class="syntax--punctuation syntax--definition syntax--item syntax--text"><span>*</span></span><span>&nbsp;Q&nbsp;=&nbsp;mL(f)</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>-&gt;&nbsp;Q:&nbsp;heat&nbsp;energy&nbsp;transferred&nbsp;in&nbsp;Joules(J)</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;&nbsp;&nbsp;-&gt;&nbsp;m:&nbsp;mass&nbsp;in&nbsp;kg</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;&nbsp;&nbsp;-&gt;&nbsp;L(f):&nbsp;the&nbsp;latent&nbsp;heat&nbsp;of&nbsp;fusion&nbsp;for&nbsp;the&nbsp;specific&nbsp;object&nbsp;(J&nbsp;kg^-1)</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Latent&nbsp;heat&nbsp;of&nbsp;vaporization;</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--bullet-point syntax--star syntax--text"><span>&nbsp;&nbsp;</span><span class="syntax--punctuation syntax--definition syntax--item syntax--text"><span>*</span></span><span>&nbsp;The&nbsp;latent&nbsp;heat&nbsp;of&nbsp;vaporization&nbsp;is&nbsp;the&nbsp;energy&nbsp;required&nbsp;to&nbsp;change&nbsp;from&nbsp;a&nbsp;liquid&nbsp;to&nbsp;a&nbsp;gas&nbsp;or&nbsp;vice&nbsp;versa;</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--bullet-point syntax--star syntax--text"><span>&nbsp;&nbsp;</span><span class="syntax--punctuation syntax--definition syntax--item syntax--text"><span>*</span></span><span>&nbsp;Q&nbsp;=mL(v)</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>-&gt;&nbsp;Q:&nbsp;heat&nbsp;energy&nbsp;transferred&nbsp;in&nbsp;Joules(J)</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;&nbsp;&nbsp;-&gt;&nbsp;m:&nbsp;mass&nbsp;in&nbsp;kg</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;&nbsp;&nbsp;-&gt;&nbsp;L(v):&nbsp;the&nbsp;latent&nbsp;heat&nbsp;of&nbsp;vaporization&nbsp;for&nbsp;the&nbsp;specific&nbsp;object&nbsp;(J&nbsp;kg^-1)</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Evaporation;</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--bullet-point syntax--star syntax--text"><span>&nbsp;&nbsp;</span><span class="syntax--punctuation syntax--definition syntax--item syntax--text"><span>*</span></span><span>&nbsp;When&nbsp;you&nbsp;have&nbsp;a&nbsp;puddle&nbsp;of&nbsp;water&nbsp;it&nbsp;will&nbsp;evaporate.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--bullet-point syntax--star syntax--text"><span>&nbsp;&nbsp;</span><span class="syntax--punctuation syntax--definition syntax--item syntax--text"><span>*</span></span><span>&nbsp;This&nbsp;is&nbsp;because&nbsp;the&nbsp;most&nbsp;energetic&nbsp;particles&nbsp;in&nbsp;the&nbsp;system&nbsp;are&nbsp;able&nbsp;to&nbsp;leave</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--bullet-point syntax--star syntax--text"><span>&nbsp;&nbsp;</span><span class="syntax--punctuation syntax--definition syntax--item syntax--text"><span>*</span></span><span>&nbsp;This&nbsp;lowers&nbsp;the&nbsp;average&nbsp;kinetic&nbsp;energy&nbsp;of&nbsp;the&nbsp;system</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--bullet-point syntax--star syntax--text"><span>&nbsp;&nbsp;</span><span class="syntax--punctuation syntax--definition syntax--item syntax--text"><span>*</span></span><span>&nbsp;Temperature&nbsp;is&nbsp;a&nbsp;measure&nbsp;of&nbsp;average&nbsp;kinetic&nbsp;energy.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>conduction;</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--bullet-point syntax--star syntax--text"><span>&nbsp;&nbsp;</span><span class="syntax--punctuation syntax--definition syntax--item syntax--text"><span>*</span></span><span>&nbsp;Change&nbsp;of&nbsp;energy&nbsp;through&nbsp;a&nbsp;system</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--bullet-point syntax--star syntax--text"><span>&nbsp;&nbsp;</span><span class="syntax--punctuation syntax--definition syntax--item syntax--text"><span>*</span></span><span>&nbsp;The&nbsp;rate&nbsp;of&nbsp;heat&nbsp;transfer&nbsp;to&nbsp;an&nbsp;object&nbsp;is&nbsp;equal&nbsp;to&nbsp;the&nbsp;thermal&nbsp;conductivity&nbsp;of&nbsp;the&nbsp;material&nbsp;the&nbsp;object&nbsp;is&nbsp;made&nbsp;from&nbsp;(k),&nbsp;multiplied&nbsp;by&nbsp;the&nbsp;surface&nbsp;area&nbsp;in&nbsp;contact&nbsp;(A),&nbsp;multiplied&nbsp;by&nbsp;the&nbsp;difference&nbsp;in&nbsp;temperature&nbsp;between&nbsp;the&nbsp;two&nbsp;objects&nbsp;(T(1)-T(2)),&nbsp;divided&nbsp;by&nbsp;the&nbsp;thickness&nbsp;of&nbsp;the&nbsp;material(L).</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>-&gt;&nbsp;ΔQ&nbsp;=&nbsp;kAΔT&nbsp;/&nbsp;L</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>-&gt;&nbsp;ΔQ:&nbsp;Change&nbsp;in&nbsp;energy</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&gt;&nbsp;k:&nbsp;Thermal&nbsp;conductivity&nbsp;of&nbsp;the&nbsp;material</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&gt;&nbsp;A:&nbsp;surface&nbsp;area&nbsp;of&nbsp;the&nbsp;material&nbsp;in&nbsp;contact</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&gt;&nbsp;ΔT:&nbsp;Change&nbsp;in&nbsp;temperature&nbsp;of&nbsp;the&nbsp;object</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&gt;&nbsp;L:&nbsp;Thickness&nbsp;of&nbsp;the&nbsp;material</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Convection;</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--bullet-point syntax--star syntax--text"><span>&nbsp;&nbsp;</span><span class="syntax--punctuation syntax--definition syntax--item syntax--text"><span>*</span></span><span>&nbsp;Wein&#39;s&nbsp;law;</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>-&gt;&nbsp;T&nbsp;=&nbsp;2.93&nbsp;×&nbsp;10^-3&nbsp;/&nbsp;P</span></span></span></div></pre><h2 id="lesson-15">Lesson 15</h2>
+<p><strong>Albedo</strong></p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Albedo&nbsp;is&nbsp;the&nbsp;reflectivity&nbsp;of&nbsp;a&nbsp;substance.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Substances&nbsp;such&nbsp;as&nbsp;ice&nbsp;have&nbsp;a&nbsp;really&nbsp;high&nbsp;albedo&nbsp;whilst&nbsp;water&nbsp;has&nbsp;a&nbsp;much&nbsp;lower&nbsp;albedo.</span></span></span></div></pre><p><strong>Why do different gasses absorb diferent energies</strong></p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Energy&nbsp;from&nbsp;gasses&nbsp;is&nbsp;absorbed&nbsp;at&nbsp;one&nbsp;wavelength&nbsp;and&nbsp;emmited&nbsp;at&nbsp;another.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>For&nbsp;example&nbsp;the&nbsp;atmosphere&nbsp;absorbs&nbsp;70-75%&nbsp;of&nbsp;solar&nbsp;radiation&nbsp;in&nbsp;the&nbsp;visible&nbsp;spectrum&nbsp;and&nbsp;emits&nbsp;some&nbsp;of&nbsp;it&nbsp;in&nbsp;the&nbsp;infrared&nbsp;spectrum.</span></span></span></div></pre><p><strong>Convection and the earth</strong></p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>The&nbsp;earth&#39;s&nbsp;has&nbsp;many&nbsp;convection&nbsp;currents.&nbsp;There&nbsp;currents&nbsp;are&nbsp;massive&nbsp;and&nbsp;span&nbsp;all&nbsp;the&nbsp;way&nbsp;around&nbsp;the&nbsp;world.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>They&nbsp;are&nbsp;caused&nbsp;because&nbsp;salt&nbsp;water&nbsp;is&nbsp;denser&nbsp;and&nbsp;sinks&nbsp;to&nbsp;the&nbsp;bottom&nbsp;whereas&nbsp;fresher&nbsp;water&nbsp;will&nbsp;come&nbsp;to&nbsp;the&nbsp;top.</span></span></span></div></pre><p><strong>Convection and tectonics</strong></p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Convection&nbsp;in&nbsp;the&nbsp;earth&nbsp;causes&nbsp;tectonic&nbsp;plates&nbsp;to&nbsp;move.</span></span></span></div></pre><hr>
+<h1 id="study-thingo-2-electricity-">Study thingo 2: Electricity!!!!</h1>
+<p><strong>What is electricity</strong></p>
+<p><strong>Different properties of charge;</strong></p>
+<ul>
+<li>There are two types of electrostatic charge;<ul>
+<li>Positive</li>
+<li>Negative</li>
+</ul>
+</li>
+<li>If you bring two charged objects together then you will get either a repulsive or attractive Force<ul>
+<li>Negative + Negative = Repel</li>
+<li>Positive + Positive = Repel</li>
+<li>Negative + Positive = Attract</li>
+</ul>
+</li>
+<li>The further the two objects are apart, the weaker the attractive or repulsive Force</li>
+</ul>
+<p><strong>Law of conservation of energy;</strong></p>
+<ul>
+<li>Charge cannot be created or destroyed, only transferred.</li>
+<li>SI unit of electric charge is the coulomb (C)</li>
+<li>Elementary charge<ul>
+<li>The Elementary charge is the smallest charge found in nature</li>
+<li>You can&#39;t have charge smaller than the elementary charge</li>
+<li>It is either the charge of an electron or a proton<ul>
+<li>Charge of electron = -6.25 x 10^-19 C</li>
+<li>Charge of proton = 6.25 x 10^18 C</li>
+<li>That means there are 6.25 x 10^-19 coulombs in one electron.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>Prefixes in physics</strong></p>
+<ul>
+<li><img src="http://3.bp.blogspot.com/_PyvjcvYfRLk/SWF0_nbdOuI/AAAAAAAAAVI/hV9ebr5rDiM/s400/prefixes.png" alt="img"></li>
+<li>We have to use these prefixes when in physics.</li>
+<li>We have to be able to convert between units.<ul>
+<li>Say we have a very large number as an answer:<ul>
+<li>1.6 x 10^-9 C</li>
+<li>This can be rewritten as: 0.0016 Micro-Coulombs or 1.6 nano-Coulombs</li>
+<li>or even: 0.0016 μC or 1.6 nC</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>Conductors and insulators</strong></p>
+<ul>
+<li>Insulators <strong>do not</strong> have electrons that can move</li>
+<li>Conductors <strong>do</strong> have free electrons that can move.</li>
+<li><p><img src="http://www.physicsclassroom.com/Class/estatics/u8l1d1.gif" alt="img"></p>
+<ul>
+<li>When the negatively charged rod touches the positively charged sphere the rod transfers its negative energy into the sphere.</li>
+<li>It does not transfer <strong>All</strong> of the negative energy and it does not make the sphere completely negative or neutral.</li>
+</ul>
+<p><strong>Van de Graff generator</strong></p>
+</li>
+<li><img src="http://hyperphysics.phy-astr.gsu.edu/hbase/electric/imgele/vang.gif" alt="img"></li>
+<li>It has an acrylic belt running through it producing electrostatic electricity.</li>
+<li>The sphere becomes positively charged.</li>
+<li>When someone touches the Generator it sucks all of the negative charge out of whatever touches it.<ul>
+<li>A person who holds it&#39;s hair will stand on end.</li>
+<li>The reason or this is because her whole body is positively charged.</li>
+<li>If two things are positively charged then they will repel.</li>
+<li>Because all of her hair is positively charged and her hair is light means that her hair will repel all her other hair until it stands on end.</li>
+</ul>
+</li>
+</ul>
+<p><strong>electrostatic charging</strong></p>
+<ul>
+<li><p><strong>Charging by rubbing</strong></p>
+<ul>
+<li>How is it decided between what gains and loses electrons when you rub two things together.</li>
+<li><img src="http://www.online-sciences.com/wp-content/uploads/2015/01/static-electricity-3.jpg" alt="img"></li>
+</ul>
+</li>
+<li><p><strong>Charging by induction;</strong></p>
+<ul>
+<li>Say you have two shperes both with neutral charge.</li>
+<li>If you bring something with negative charge next to one sphere then it will attract all the positive charges into that sphere and repel all the electrons into the other one.<ul>
+<li><img src="http://www.physicsclassroom.com/Class/estatics/u8l2b2.gif" alt="img"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>Sparks</strong>
+When we put the negative sphere close to the positive sphere we see a spark.</p>
+<ul>
+<li>The spark is the electrons moving from one spot to another via the air.</li>
+<li>The electrons are essentially pulled out of the neutrally charged sphere into the positively charged sphere.</li>
+<li>The neutrally charged sphere (A) has to be close enough to the positively charged sphere (B) for the electrons from A to be attracted to B</li>
+<li>The reason we see the spark is because the atoms in the air become ionized.</li>
+</ul>
+<h2 id="workbook-chapter-3-1">Workbook chapter 3.1</h2>
+<p>All objects have a net charge. That is the average charge of all of their atoms.</p>
+<p><strong>Measuring charge</strong></p>
+<p>The amount of charge of 6 billion electrons would be:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>1&nbsp;billion&nbsp;=&nbsp;10^9</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;6&nbsp;billion&nbsp;=&nbsp;6&nbsp;x&nbsp;10^9</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;Q&nbsp;=&nbsp;(6&nbsp;x&nbsp;10^9)&nbsp;x&nbsp;-C</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>=&nbsp;(6&nbsp;x&nbsp;10^9)&nbsp;x&nbsp;(-1.6&nbsp;x&nbsp;10^-19)&nbsp;C</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;-9.6&nbsp;x&nbsp;10^-10&nbsp;C</span></span></span></div></pre><p><strong>Why things have charge</strong></p>
+<ul>
+<li>So basically things have charge because they have a bunch of electrons that are just kinda chillin.</li>
+<li>Because electrons are negatively charged, if you have a bunch of free electrons just chillin and there are more electrons than protons then the object will be negatively charged.</li>
+<li>Metals have very loose electrons so it is easy for them to have a bunch of electrons just chilling around them and that makes them conductors</li>
+<li>Non-Metals don&#39;t like having a bunch of electrons hanging around so they are called insulators.</li>
+<li>When something that has fewer protons than it has electrons exist it is positively charged.<ul>
+<li>positively charged things are lonely and negatively charged things have too many electrons around to be happy.</li>
+<li>so, when a negatively charged thing goes near a positively charged thing all of the electrons will rush over to it until all of the protons have an electron partner.</li>
+<li>When all the electrons and protons have the perfect amount of partners then it is neutrally charged.</li>
+</ul>
+</li>
+</ul>
+<h2 id="workbook-chapter-3-2">Workbook chapter 3.2</h2>
+<p><strong>Electric circuits</strong></p>
+<ul>
+<li>An electric circuit is a path made of conductive material in a closed loop.</li>
+<li><p>Electrons will flow around this wire. This is called the electron flow.</p>
+</li>
+<li><p><strong>Circuit Diagrams</strong></p>
+<ul>
+<li>A circuit diagram is a simple way of visualizing a circuit.</li>
+<li>Here&#39;s a bunch of symbols used in electric circuit diagrams.</li>
+<li><img src="https://s-media-cache-ak0.pinimg.com/originals/6c/64/fb/6c64fb84c8e162b28334051891c290f4.jpg" alt="img"></li>
+</ul>
+</li>
+</ul>
+<p><strong>Quantifying current</strong></p>
+<ul>
+<li>The current is the amount of electrons that pass through a point per second. Current is the same in all parts of the circuit.</li>
+<li>Current is measured in amperes or Amps (A). One Amp = 1 Coulomb / second<blockquote>
+<p>l = Q/t</p>
+<ul>
+<li>l : current in amperes</li>
+<li>Q : amount of charge in coulombs</li>
+<li>t : time in seconds.</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<!-- > l = n(e) x q(e) / t -->
+<ul>
+<li>l : current in amperes</li>
+<li>n(e) : number of electrons</li>
+<li>q(e) : charge on one electron (-1.6 x 10-19 C)</li>
+</ul>
+<p><strong>The ammeter</strong>
+An ammeter is a tool used to measure amperage. You pretty much just connect it to a point in the circuit and it gives you a reading.</p>
+<p><strong>Main points</strong></p>
+<ul>
+<li>Current will only flow in a closed circuit.</li>
+<li>When an electric current is closed the electrons will move towards the positive end.</li>
+<li>Conventional current flows from positive to negative.</li>
+<li>Current (l) is the amount of charge (Q), that passes through a point in a wire per second.</li>
+</ul>
+<hr>
+<h2 id="lesson-2">Lesson 2</h2>
+<p><strong>Why are protons positive?</strong></p>
+<ul>
+<li>In the early days electricity was considered to be the movement of positive charge but it is actually the flow of negative charge.</li>
+</ul>
+<p><strong>Electric fields</strong></p>
+<ul>
+<li><img src="https://evantoh23.files.wordpress.com/2013/02/p533-scaled1000.jpg?w=1500&amp;h=1125" alt="img"></li>
+<li>Electrically charged particles have fields.</li>
+<li>If you put another charged particle into the field of a charged particle then they will feel some kind o force.</li>
+<li>The field around a positive charge is radial in shape.
+<strong>Field lines</strong><ul>
+<li>The intersection between the charge and the particle is always 90 degrees</li>
+<li>None of the field lines intersect or join</li>
+<li>The direction of the electric field is always defined by what would happen if there was a slight positive charge acting upon the field.</li>
+<li><img src="https://www.wired.com/images_blogs/wiredscience/2013/08/summer_sketcheskey4.jpg" alt="img"></li>
+<li><strong>What do field lines tell me?</strong><ul>
+<li>Field lines in a radial electric field are due to a charged particle</li>
+<li>They indicate the strength of the field<ul>
+<li><em>This is represented by the density of the field lines</em></li>
+<li><em>If you were to draw a circle closer to the center then the distance between the interceptions would be smaller than a circle further out.</em></li>
+</ul>
+</li>
+<li>Direction of the field<ul>
+<li><em>You can tell this by the effect of a test positive on the particle.*</em></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Radial fields</strong></p>
+<ul>
+<li>If you make a circle around the particle then anywhere on that circle will have approximately the same attracting or reppelling force.</li>
+<li>These circles are called equipotential lines</li>
+<li><img src="http://www.pstcc.edu/departments/natural_behavioral_sciences/Web%20Physics/E2020D0102.gif" alt="img"></li>
+<li><img src="https://evantoh23.files.wordpress.com/2013/02/p531-scaled1000.jpg?w=1500&amp;h=1125" alt="img"></li>
+</ul>
+</li>
+<li><p><strong>Uniform electric fields</strong></p>
+<ul>
+<li>Uniform electric fields look like this:<ul>
+<li><img src="http://tap.iop.org/fields/electrical/409/img_full_46899.gif" alt="img"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Important laws</strong></p>
+<ul>
+<li>Lines must begin on positive charges and end on negative charges</li>
+<li>Number of lines drawn leaving positive charge or ending on negative charge is proportional to magnitude of charge</li>
+<li>No two field lines can cross each other</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><strong>Electrical fields and forces</strong><ul>
+<li>Electric force is directly proportional to the size of the interacting charges.</li>
+<li>Electric force is inversely proportional to the distance between the two charges;</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong>Types of electric field interactions</strong></p>
+<ul>
+<li>Dipole<ul>
+<li><img src="http://labman.phys.utk.edu/phys222core/modules/m1/images/dipole.gif" alt="img"></li>
+</ul>
+</li>
+<li>always<ul>
+<li><img src="https://i.stack.imgur.com/pNHut.jpg" alt="img"></li>
+</ul>
+</li>
+<li><p>Third Types</p>
+<ul>
+<li><img src="http://labman.phys.utk.edu/phys136/modules/m4/images/Image991.gif" alt="img"></li>
+</ul>
+</li>
+<li><p>If the net charge of the particles is 0 then you will get a symettrical diagram.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="-here-is-a-great-simulation-c-users-patchy-google-drive-school-work-2017-physics-"><a href="C:\Users\Patchy\Google Drive\School work\2017\Physics">Here is a great simulation</a></h2>
+<p><strong>Coulomb&#39;s Law</strong></p>
+<ul>
+<li>Electric force is directly proportional to the size of the interacting charges.</li>
+<li>Electric force is inversely proportional to the distance between the two charges;</li>
+<li>The force between two charges, Q1 and Q2 is described by Coulomb&#39;s Law:<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>F12&nbsp;=&nbsp;(k&nbsp;×&nbsp;Q2&nbsp;×&nbsp;Q1)&nbsp;÷&nbsp;r12^2</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>-&nbsp;r12&nbsp;=&nbsp;distance&nbsp;between&nbsp;the&nbsp;charges</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;-&nbsp;k&nbsp;=&nbsp;9&nbsp;×&nbsp;10^9&nbsp;Newton&nbsp;meters^2&nbsp;÷&nbsp;Coulomb&#39;s^2</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>-&nbsp;k&nbsp;=&nbsp;9&nbsp;×&nbsp;10^9&nbsp;Nm^2&nbsp;÷&nbsp;C^2</span></span></span></div></pre></li>
+</ul>
+<p><strong>EMF</strong></p>
+<ul>
+<li>Measured in volts</li>
+</ul>
+<p><strong>Voltage drop</strong></p>
+<ul>
+<li>Measured in volts</li>
+</ul>
+<p><strong>Electrical potential energy</strong></p>
+<ul>
+<li>Measured in joules</li>
+<li>Say you have two negative test charges in a line away from a positive charge<ul>
+<li>If the negative charge on the outside were to move towards the center because it&#39;s attracted to the positive charge then it will have to go through the other negative.</li>
+<li>When it moves towards the negative charge it increases his potential energy because he has the potential to be repelled.</li>
+<li>There is work done on the negative to move it closer but work done to the charge to move it away.</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>Vab, the change in electrical potential energy of an amount of charge as it moves from point A to point B, divided by the size of the charge, = Electrical Potential Difference between point A and B</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Potential&nbsp;difference&nbsp;(V)&nbsp;=&nbsp;work&nbsp;done&nbsp;(change&nbsp;in&nbsp;energy)&nbsp;÷&nbsp;charge</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>You&nbsp;can&nbsp;make&nbsp;a&nbsp;triangle</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>/&nbsp;\</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>/_U_\</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>/V&nbsp;|&nbsp;Q\</span></span></span></div></pre><ul>
+<li>Sources of electrical potential energy:</li>
+</ul>
+</li>
+<li>The battery<ul>
+<li><img src="https://i.stack.imgur.com/69SVs.png" alt="img"></li>
+<li>The longer side is the positive, the shorter is the negative.</li>
+</ul>
+</li>
+<li>The cell<ul>
+<li><img src="http://www.technologytom.com/assets/images/cell_symbol.jpg" alt="img"></li>
+</ul>
+</li>
+<li>Electrical generator</li>
+<li>Solar cells</li>
+<li>Biological systems: electric eels, plants, human beings.</li>
+</ul>
+<p>###<strong>Current always goes from positive to negative</strong>###</p>
+<p><strong>Electric current</strong></p>
+<ul>
+<li>How quickly the charge moves around a circuit.<ul>
+<li>V = E ÷ Q</li>
+<li>I = Q ÷ t</li>
+<li>A = C ÷ t
+.   </li>
+</ul>
+</li>
+</ul></body>
+</html>
